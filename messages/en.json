@@ -188,6 +188,23 @@
       "signIn": "Sign in",
       "backHome": "← Back to home",
       "error": "Failed to create account. Please try again."
+    },
+    "resetPassword": {
+      "title": "Set New",
+      "titleHighlight": "Password",
+      "subtitle": "Enter your new password below",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
+      "updatePassword": "Update Password",
+      "updating": "Updating...",
+      "successTitle": "Password Updated",
+      "successMessage": "Your password has been successfully updated. You can now sign in with your new password.",
+      "goToLogin": "Go to Login",
+      "invalidLink": "Invalid Link",
+      "invalidLinkMessage": "This password reset link is invalid or has expired. Please request a new one.",
+      "requestNewLink": "Request New Link",
+      "backToLogin": "← Back to login",
+      "error": "Failed to update password. Please try again."
     }
   },
   "dashboard": {

@@ -188,6 +188,23 @@
       "signIn": "Se connecter",
       "backHome": "← Retour à l'accueil",
       "error": "Échec de création du compte. Veuillez réessayer."
+    },
+    "resetPassword": {
+      "title": "Nouveau",
+      "titleHighlight": "mot de passe",
+      "subtitle": "Entrez votre nouveau mot de passe ci-dessous",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "updatePassword": "Mettre à jour le mot de passe",
+      "updating": "Mise à jour...",
+      "successTitle": "Mot de passe mis à jour",
+      "successMessage": "Votre mot de passe a été mis à jour avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+      "goToLogin": "Aller à la connexion",
+      "invalidLink": "Lien invalide",
+      "invalidLinkMessage": "Ce lien de réinitialisation est invalide ou a expiré. Veuillez en demander un nouveau.",
+      "requestNewLink": "Demander un nouveau lien",
+      "backToLogin": "← Retour à la connexion",
+      "error": "Échec de la mise à jour du mot de passe. Veuillez réessayer."
     }
   },
   "dashboard": {
