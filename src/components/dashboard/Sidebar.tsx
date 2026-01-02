@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, User, CreditCard, Calendar, Clock, Receipt } from 'lucide-react';
+import { Home, User, CreditCard, Calendar, Receipt } from 'lucide-react';
 import { cn } from '@/components/ui/cn';
 import { KeystoneIcon } from '@/components/icons/KeystoneIcon';
 
@@ -11,7 +11,6 @@ const navItems = [
   { href: '/dashboard/profile', label: 'Profile', icon: User },
   { href: '/dashboard/subscription', label: 'Subscription', icon: CreditCard },
   { href: '/dashboard/schedule', label: 'Schedule', icon: Calendar },
-  { href: '/dashboard/bookings', label: 'My Bookings', icon: Clock },
   { href: '/dashboard/payments', label: 'Payments', icon: Receipt },
 ];
 

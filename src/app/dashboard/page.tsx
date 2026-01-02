@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { Calendar, CreditCard, Clock, ArrowRight } from 'lucide-react';
+import { CreditCard, Calendar, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function DashboardPage() {
@@ -12,15 +12,6 @@ export default async function DashboardPage() {
     .select('*')
     .eq('email', user?.email)
     .single();
-
-  // Fetch upcoming bookings
-  const { data: bookings } = await supabase
-    .from('bookings')
-    .select('*, schedules(*)')
-    .eq('member_id', member?.id)
-    .gte('booking_date', new Date().toISOString().split('T')[0])
-    .order('booking_date', { ascending: true })
-    .limit(3);
 
   return (
     <div className="pt-16">
@@ -56,9 +47,9 @@ export default async function DashboardPage() {
               <Calendar className="w-6 h-6 text-[#D4AF37]" />
             </div>
             <div>
-              <p className="font-mono text-xs text-zinc-500 uppercase">Upcoming Sessions</p>
+              <p className="font-mono text-xs text-zinc-500 uppercase">Training Days</p>
               <p className="font-sans font-bold text-xl text-white">
-                {bookings?.length || 0}
+                Sat & Sun
               </p>
             </div>
           </div>
@@ -66,7 +57,7 @@ export default async function DashboardPage() {
             href="/dashboard/schedule"
             className="flex items-center gap-2 text-[#D4AF37] font-mono text-sm hover:underline"
           >
-            Book Session <ArrowRight className="w-4 h-4" />
+            View Schedule <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -96,59 +87,37 @@ export default async function DashboardPage() {
         </div>
       </div>
 
-      {/* Upcoming Bookings */}
+      {/* Schedule Info */}
       <div className="bg-[#0a0a0a] border border-zinc-800 rounded-lg p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="font-sans text-xl font-bold uppercase">Upcoming Sessions</h2>
-          <Link
-            href="/dashboard/bookings"
-            className="text-[#D4AF37] font-mono text-sm hover:underline"
-          >
-            View All
-          </Link>
+        <h2 className="font-sans text-xl font-bold uppercase mb-6">Training Schedule</h2>
+
+        <div className="space-y-4">
+          <div className="flex items-center justify-between p-4 bg-zinc-900 rounded-lg">
+            <div>
+              <p className="font-sans font-bold text-white">Saturday</p>
+              <p className="font-mono text-sm text-zinc-500">Weekend Training</p>
+            </div>
+            <div className="text-right">
+              <p className="font-mono text-[#D4AF37]">8:30 – 9:30</p>
+              <p className="font-mono text-xs text-zinc-600">Coach Rustam</p>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between p-4 bg-zinc-900 rounded-lg">
+            <div>
+              <p className="font-sans font-bold text-white">Sunday</p>
+              <p className="font-mono text-sm text-zinc-500">Weekend Training</p>
+            </div>
+            <div className="text-right">
+              <p className="font-mono text-[#D4AF37]">8:30 – 9:30</p>
+              <p className="font-mono text-xs text-zinc-600">Coach Rustam</p>
+            </div>
+          </div>
         </div>
 
-        {bookings && bookings.length > 0 ? (
-          <div className="space-y-4">
-            {bookings.map((booking) => (
-              <div
-                key={booking.id}
-                className="flex items-center justify-between p-4 bg-zinc-900 rounded-lg"
-              >
-                <div>
-                  <p className="font-sans font-bold text-white">
-                    {booking.schedules?.discipline}
-                  </p>
-                  <p className="font-mono text-sm text-zinc-500">
-                    {new Date(booking.booking_date).toLocaleDateString('en-US', {
-                      weekday: 'long',
-                      month: 'short',
-                      day: 'numeric',
-                    })}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="font-mono text-sm text-[#D4AF37]">
-                    {booking.schedules?.start_time} - {booking.schedules?.end_time}
-                  </p>
-                  <p className="font-mono text-xs text-zinc-600">
-                    Coach: {booking.schedules?.coach_name}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-zinc-500 mb-4">No upcoming sessions booked</p>
-            <Link
-              href="/dashboard/schedule"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-black font-bold rounded-lg hover:bg-[#D4AF37]/90 transition-colors"
-            >
-              Book a Session <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        )}
+        <p className="mt-6 text-zinc-500 font-mono text-sm text-center">
+          Just show up. No booking required.
+        </p>
       </div>
     </div>
   );
