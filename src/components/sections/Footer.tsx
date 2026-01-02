@@ -80,8 +80,11 @@ export function Footer() {
             {t('tagline2')}<br />
             {t('tagline3')}
           </div>
-          <p className="font-mono text-[10px] text-zinc-700 mt-8">
-            {t('copyright')}
+          <p className="text-sm text-[#D4AF37] mt-4 leading-relaxed" dir="rtl">
+            الْمُؤْمِنُ لِلْمُؤْمِنِ كَالْبُنْيَانِ يَشُدُّ بَعْضُهُ بَعْضًا
+          </p>
+          <p className="font-mono text-[10px] text-zinc-700 mt-4">
+            © {new Date().getFullYear()} Keystone Gym. All rights reserved.
           </p>
         </div>
       </Grid>
