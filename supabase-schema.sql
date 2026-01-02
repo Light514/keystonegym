@@ -84,12 +84,6 @@ CREATE POLICY "Users can view own member data" ON members
 CREATE POLICY "Users can update own member data" ON members
   FOR UPDATE USING (auth.jwt() ->> 'email' = email);
 
--- Admins can view all members
-CREATE POLICY "Admins can view all members" ON members
-  FOR SELECT USING (
-    EXISTS (SELECT 1 FROM members WHERE email = auth.jwt() ->> 'email' AND role = 'admin')
-  );
-
 -- Subscriptions: Users can view their own subscriptions
 CREATE POLICY "Users can view own subscriptions" ON subscriptions
   FOR SELECT USING (
