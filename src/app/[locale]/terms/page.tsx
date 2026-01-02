@@ -1,12 +1,12 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { KeystoneIcon } from '@/components/icons/KeystoneIcon';
 
-export const metadata = {
-  title: 'Terms of Service | Keystone Gym',
-  description: 'Terms of service for Keystone Gym members.',
-};
-
 export default function TermsPage() {
+  const t = useTranslations('legal.terms');
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <header className="px-4 md:px-8 py-6 border-b border-zinc-800">
@@ -18,12 +18,12 @@ export default function TermsPage() {
 
       <main className="max-w-3xl mx-auto px-4 md:px-8 py-16">
         <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8">
-          Terms of <span className="text-[#D4AF37]">Service</span>
+          {t('title')} <span className="text-[#D4AF37]">{t('titleHighlight')}</span>
         </h1>
 
         <div className="prose prose-invert prose-zinc max-w-none space-y-8">
           <p className="text-zinc-400 text-lg">
-            Last updated: January 2025
+            {t('lastUpdated')}
           </p>
 
           <section className="space-y-4">
@@ -114,7 +114,7 @@ export default function TermsPage() {
 
         <div className="mt-16 pt-8 border-t border-zinc-800">
           <Link href="/" className="text-[#D4AF37] hover:underline">
-            ← Back to Home
+            {t('backHome')}
           </Link>
         </div>
       </main>

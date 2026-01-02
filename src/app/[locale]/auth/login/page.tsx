@@ -6,12 +6,14 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { loginSchema, type LoginInput } from '@/lib/validations';
 import { Button } from '@/components/ui/Button';
 import { KeystoneIcon } from '@/components/icons/KeystoneIcon';
 
 function LoginForm() {
+  const t = useTranslations('auth.login');
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get('redirect') || '/dashboard';
@@ -45,7 +47,7 @@ function LoginForm() {
       router.push(redirect);
       router.refresh();
     } catch (err) {
-      setError('Invalid email or password');
+      setError(t('error'));
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -60,16 +62,16 @@ function LoginForm() {
           <span className="font-sans font-black text-3xl tracking-tighter">KEYSTONE</span>
         </Link>
         <h1 className="font-sans text-4xl font-black uppercase tracking-tighter text-white">
-          Member <span className="text-[#D4AF37]">Portal</span>
+          {t('title')}
         </h1>
         <p className="mt-2 text-zinc-500 font-mono text-sm">
-          Sign in to access your dashboard
+          {t('subtitle')}
         </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-2">
-          <label className="font-mono text-xs uppercase text-[#D4AF37]">Email</label>
+          <label className="font-mono text-xs uppercase text-[#D4AF37]">{t('email')}</label>
           <input
             {...register('email')}
             type="email"
@@ -82,7 +84,7 @@ function LoginForm() {
         </div>
 
         <div className="space-y-2">
-          <label className="font-mono text-xs uppercase text-[#D4AF37]">Password</label>
+          <label className="font-mono text-xs uppercase text-[#D4AF37]">{t('password')}</label>
           <input
             {...register('password')}
             type="password"
@@ -108,10 +110,10 @@ function LoginForm() {
           {isLoading ? (
             <>
               <Loader2 className="w-5 h-5 animate-spin" />
-              Signing in...
+              {t('signingIn')}
             </>
           ) : (
-            'Sign In'
+            t('signIn')
           )}
         </Button>
       </form>
@@ -121,19 +123,19 @@ function LoginForm() {
           href="/auth/forgot-password"
           className="block text-zinc-500 font-mono text-sm hover:text-[#D4AF37] transition-colors"
         >
-          Forgot your password?
+          {t('forgotPassword')}
         </Link>
         <p className="text-zinc-600 font-mono text-sm">
-          Not a member?{' '}
+          {t('notMember')}{' '}
           <Link href="/auth/signup" className="text-[#D4AF37] hover:underline">
-            Request access
+            {t('requestAccess')}
           </Link>
         </p>
       </div>
 
       <div className="mt-12 text-center">
         <Link href="/" className="text-zinc-600 font-mono text-xs hover:text-zinc-400 transition-colors">
-          ← Back to home
+          {t('backHome')}
         </Link>
       </div>
     </div>

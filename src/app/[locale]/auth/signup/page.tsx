@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Check } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { signupSchema, type SignupInput } from '@/lib/validations';
 import { Button } from '@/components/ui/Button';
 import { KeystoneIcon } from '@/components/icons/KeystoneIcon';
 
 export default function SignupPage() {
+  const t = useTranslations('auth.signup');
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -46,7 +48,7 @@ export default function SignupPage() {
 
       setIsSuccess(true);
     } catch (err) {
-      setError('Failed to create account. Please try again.');
+      setError(t('error'));
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -61,13 +63,13 @@ export default function SignupPage() {
             <Check className="w-10 h-10 text-black" />
           </div>
           <h1 className="font-sans text-4xl font-black uppercase tracking-tighter text-white mb-4">
-            Check Your <span className="text-[#D4AF37]">Email</span>
+            {t('checkEmail')}
           </h1>
           <p className="text-zinc-400 mb-8">
-            We&apos;ve sent a confirmation link to your email address. Please verify your email to continue.
+            {t('emailSent')}
           </p>
           <Link href="/auth/login">
-            <Button className="w-full justify-center">Back to Login</Button>
+            <Button className="w-full justify-center">{t('backLogin')}</Button>
           </Link>
         </div>
       </div>
@@ -83,16 +85,16 @@ export default function SignupPage() {
             <span className="font-sans font-black text-3xl tracking-tighter">KEYSTONE</span>
           </Link>
           <h1 className="font-sans text-4xl font-black uppercase tracking-tighter text-white">
-            Join the <span className="text-[#D4AF37]">Brotherhood</span>
+            {t('title')}
           </h1>
           <p className="mt-2 text-zinc-500 font-mono text-sm">
-            Create your member account
+            {t('subtitle')}
           </p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-2">
-            <label className="font-mono text-xs uppercase text-[#D4AF37]">Full Name</label>
+            <label className="font-mono text-xs uppercase text-[#D4AF37]">{t('fullName')}</label>
             <input
               {...register('fullName')}
               type="text"
@@ -105,7 +107,7 @@ export default function SignupPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="font-mono text-xs uppercase text-[#D4AF37]">Email</label>
+            <label className="font-mono text-xs uppercase text-[#D4AF37]">{t('email')}</label>
             <input
               {...register('email')}
               type="email"
@@ -118,7 +120,7 @@ export default function SignupPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="font-mono text-xs uppercase text-[#D4AF37]">Phone</label>
+            <label className="font-mono text-xs uppercase text-[#D4AF37]">{t('phone')}</label>
             <input
               {...register('phone')}
               type="tel"
@@ -131,7 +133,7 @@ export default function SignupPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="font-mono text-xs uppercase text-[#D4AF37]">Password</label>
+            <label className="font-mono text-xs uppercase text-[#D4AF37]">{t('password')}</label>
             <input
               {...register('password')}
               type="password"
@@ -144,7 +146,7 @@ export default function SignupPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="font-mono text-xs uppercase text-[#D4AF37]">Confirm Password</label>
+            <label className="font-mono text-xs uppercase text-[#D4AF37]">{t('confirmPassword')}</label>
             <input
               {...register('confirmPassword')}
               type="password"
@@ -170,26 +172,26 @@ export default function SignupPage() {
             {isLoading ? (
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
-                Creating account...
+                {t('creating')}
               </>
             ) : (
-              'Create Account'
+              t('createAccount')
             )}
           </Button>
         </form>
 
         <div className="mt-8 text-center">
           <p className="text-zinc-600 font-mono text-sm">
-            Already have an account?{' '}
+            {t('alreadyAccount')}{' '}
             <Link href="/auth/login" className="text-[#D4AF37] hover:underline">
-              Sign in
+              {t('signIn')}
             </Link>
           </p>
         </div>
 
         <div className="mt-12 text-center">
           <Link href="/" className="text-zinc-600 font-mono text-xs hover:text-zinc-400 transition-colors">
-            ← Back to home
+            {t('backHome')}
           </Link>
         </div>
       </div>
