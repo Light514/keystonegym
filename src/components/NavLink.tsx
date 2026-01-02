@@ -7,9 +7,10 @@ interface NavLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-export function NavLink({ href, children, className }: NavLinkProps) {
+export function NavLink({ href, children, className, onClick }: NavLinkProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -18,6 +19,7 @@ export function NavLink({ href, children, className }: NavLinkProps) {
       className={cn("relative group flex items-center transition-colors active:scale-95 duration-100", className)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
     >
       <span className={cn(
         "font-mono text-[#D4AF37] mr-2 inline-block transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
