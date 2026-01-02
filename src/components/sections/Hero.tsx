@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Menu } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { RevealText } from '../animations/RevealText';
 import { FadeIn } from '../animations/FadeIn';
@@ -10,8 +11,10 @@ import { Button } from '../ui/Button';
 import { KeystoneIcon } from '../icons/KeystoneIcon';
 import { NavLink } from '../NavLink';
 import { LanguageSwitcher } from '../LanguageSwitcher';
+import { MobileMenu } from '../MobileMenu';
 
 export function Hero() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const t = useTranslations('hero');
   const nav = useTranslations('nav');
 
@@ -28,6 +31,7 @@ export function Hero() {
           <KeystoneIcon className="w-8 h-8" />
           KEYSTONE
         </motion.div>
+        {/* Desktop Navigation */}
         <motion.nav
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -44,7 +48,25 @@ export function Hero() {
           <NavLink href="#support">{nav('support').toUpperCase()}</NavLink>
           <NavLink href="auth/login">{nav('memberPortal').toUpperCase()}</NavLink>
         </motion.nav>
+
+        {/* Mobile Hamburger Button */}
+        <motion.button
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          onClick={() => setIsMobileMenuOpen(true)}
+          className="md:hidden pointer-events-auto p-2 text-[#D4AF37] hover:text-white transition-colors"
+          aria-label="Open menu"
+        >
+          <Menu className="w-6 h-6" />
+        </motion.button>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
 
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex flex-col justify-end pb-12 md:pb-24 px-4 md:px-8 pt-32">

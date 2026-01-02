@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
+import { getLocale } from 'next-intl/server';
 import { DashboardSidebar } from '@/components/dashboard/Sidebar';
 import { DashboardHeader } from '@/components/dashboard/Header';
 
@@ -12,7 +13,8 @@ export default async function DashboardLayout({
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect('/auth/login');
+    const locale = await getLocale();
+    redirect(`/${locale}/auth/login`);
   }
 
   // Fetch user's role

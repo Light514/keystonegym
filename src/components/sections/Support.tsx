@@ -212,23 +212,40 @@ export function Support() {
                   label: 'donate',
                 }}
                 disabled={finalAmount < 1}
-                createOrder={(_data, actions) => {
-                  return actions.order.create({
-                    intent: 'CAPTURE',
-                    purchase_units: [
-                      {
-                        amount: {
-                          currency_code: 'CAD',
-                          value: finalAmount.toString(),
-                        },
-                        description: 'Keystone Gym Donation',
-                      },
-                    ],
-                  });
+                createOrder={async () => {
+                  try {
+                    const response = await fetch('/api/donations/paypal', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ amount: finalAmount }),
+                    });
+                    const data = await response.json();
+                    if (data.error) {
+                      throw new Error(data.error);
+                    }
+                    return data.orderId;
+                  } catch (err) {
+                    console.error('Failed to create PayPal order:', err);
+                    setError(t('errors.paypalFailed'));
+                    throw err;
+                  }
                 }}
-                onApprove={async (_data, actions) => {
-                  await actions.order?.capture();
-                  alert(t('thankYou'));
+                onApprove={async (data) => {
+                  try {
+                    const response = await fetch('/api/donations/paypal/capture', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ orderId: data.orderID }),
+                    });
+                    const result = await response.json();
+                    if (result.error) {
+                      throw new Error(result.error);
+                    }
+                    alert(t('thankYou'));
+                  } catch (err) {
+                    console.error('Failed to capture PayPal order:', err);
+                    setError(t('errors.paypalFailed'));
+                  }
                 }}
                 onError={(err) => {
                   console.error('PayPal error:', err);
