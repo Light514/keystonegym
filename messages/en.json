@@ -1,0 +1,299 @@
+{
+  "nav": {
+    "philosophy": "Philosophy",
+    "coaches": "The Room",
+    "training": "Training",
+    "join": "Join",
+    "support": "Support",
+    "memberPortal": "Member Portal"
+  },
+  "hero": {
+    "location": "Montreal, QC • 45.5017° N, 73.5673° W",
+    "title1": "Key",
+    "title2": "Stone",
+    "tagline1": "Send location. Montreal.",
+    "tagline2": "Real training. Real standards.",
+    "tagline3": "No shortcuts.",
+    "requestTrial": "Request Trial",
+    "learnMore": "Learn More →"
+  },
+  "philosophy": {
+    "label": "01 • Philosophy",
+    "title1": "If You",
+    "title2": "Know,",
+    "title3": "You Know",
+    "items": {
+      "noRecruit": {
+        "title": "We Don't Recruit",
+        "desc": "You request a trial session. We train together. Both sides evaluate. If it fits, welcome. If not, respectful goodbye."
+      },
+      "protection": {
+        "title": "Protection First",
+        "desc": "We screen carefully to protect the people already here. The selectivity isn't elitism - it's protection."
+      },
+      "realTraining": {
+        "title": "Real Training",
+        "desc": "This is a fighting camp, not a fitness class. Our coaches come from Chechnya, Dagestan. Real lineage, real training."
+      },
+      "brotherhood": {
+        "title": "Brotherhood",
+        "desc": "Every member is a keystone - the wedge-shaped stone that holds the arch together. Remove one, the structure weakens."
+      }
+    }
+  },
+  "values": {
+    "weWant": "We Want",
+    "weReject": "We Reject",
+    "want": {
+      "discipline": { "title": "Discipline", "subtitle": "The foundation of everything" },
+      "respect": { "title": "Respect", "subtitle": "For the room, the coaches, each other" },
+      "rightReasons": { "title": "Right Reasons", "subtitle": "Growth, not ego" },
+      "protectors": { "title": "Protectors", "subtitle": "Those who guard the structure" }
+    },
+    "reject": {
+      "street": { "title": "Street Mentality", "subtitle": "We train warriors, not troublemakers" },
+      "egos": { "title": "Unchecked Egos", "subtitle": "Leave it at the door or don't enter" },
+      "disrespect": { "title": "Disrespect", "subtitle": "To anyone in this room" }
+    },
+    "noExceptions": "No exceptions. No second chances."
+  },
+  "coaches": {
+    "label": "02 • The Room",
+    "title1": "Not franchise gym instructors.",
+    "title2": "Real lineage. Real experience.",
+    "title3": "Real standards.",
+    "coach": "COACH",
+    "exp": "EXP",
+    "origin": "ORIGIN",
+    "focus": "FOCUS",
+    "list": {
+      "rustam": { "name": "Rustam Dudaiev", "exp": "20+ Years", "origin": "Chechnya", "discipline": "Wrestling" },
+      "vislan": { "name": "Vislan Dalkhaev", "exp": "15+ Years", "origin": "Dagestan", "discipline": "Boxing" },
+      "wassim": { "name": "Wassim", "exp": "7+ Years", "origin": "Morocco", "discipline": "Kickboxing" },
+      "ahmed": { "name": "Ahmed", "exp": "7+ Years", "origin": "Morocco", "discipline": "Grappling" }
+    }
+  },
+  "training": {
+    "label": "03 • Training",
+    "title1": "Small &",
+    "title2": "Deliberate",
+    "description": "We're not trying to be the biggest gym in Montreal. We're building the right community.",
+    "price": "$100",
+    "currency": "CAD / MONTH",
+    "noFees": "NO HIDDEN FEES. NO CONTRACTS.",
+    "justTraining": "JUST TRAINING.",
+    "schedule": "Schedule",
+    "disciplines": "Disciplines",
+    "saturday": "SATURDAY",
+    "sunday": "SUNDAY",
+    "time": "8:30 AM - 9:30 AM",
+    "wrestling": "WRESTLING",
+    "disciplineList": ["Wrestling", "Boxing", "Kickboxing", "Grappling"],
+    "gymFloor": "Gym Floor"
+  },
+  "trial": {
+    "label": "04 • Step Into The Room",
+    "title1": "Prove",
+    "title2": "Yourself",
+    "subtitle": "See if this is your brotherhood. We'll train together, then both sides decide.",
+    "fullName": "Full Name *",
+    "phone": "Phone *",
+    "email": "Email *",
+    "whyTrain": "Why do you want to train with us?",
+    "placeholders": {
+      "name": "JOHN DOE",
+      "phone": "(555) 000-0000",
+      "email": "EMAIL@ADDRESS.COM",
+      "message": "BE HONEST."
+    },
+    "submit": "Submit Request",
+    "submitting": "Submitting...",
+    "success": {
+      "title": "Request",
+      "titleHighlight": "Received",
+      "message": "A WhatsApp message has been prepared for you. Send it to complete your request.",
+      "submitAnother": "Submit another request"
+    },
+    "error": "Something went wrong. Please try again or call us directly."
+  },
+  "support": {
+    "quote": "We built this room for our sons—for every kid in this community who needs to learn what hard work and discipline really mean. The martial arts are just the tool. The lessons are what matter.",
+    "author": "Waled Al-Shabi, Founder",
+    "title": "Build the Next Generation",
+    "subtitle": "Your support goes directly to:",
+    "equipment": "// EQUIPMENT",
+    "scholarships": "// SCHOLARSHIPS",
+    "expansion": "// EXPANSION",
+    "custom": "CUSTOM",
+    "enterAmount": "Enter amount",
+    "card": "Card",
+    "paypal": "PayPal",
+    "contribute": "Contribute ${amount} CAD",
+    "processing": "Processing...",
+    "securePayment": "Secure payment via",
+    "thankYou": "Thank you for your donation!",
+    "errors": {
+      "invalidAmount": "Please enter a valid amount",
+      "paymentFailed": "Failed to process payment. Please try again.",
+      "paypalFailed": "PayPal payment failed. Please try again."
+    }
+  },
+  "footer": {
+    "description": "A selective martial arts training community in Montreal. Real training. Real coaches. Real standards.",
+    "location": "Saint Laurent, Montreal",
+    "menu": "Menu",
+    "legal": "Legal",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "tagline1": "Real Training.",
+    "tagline2": "Real Standards.",
+    "tagline3": "No Shortcuts.",
+    "copyright": "© 2025 Keystone Martial Arts. All rights reserved."
+  },
+  "cookie": {
+    "message": "We use cookies to improve your experience.",
+    "learnMore": "Learn more",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "auth": {
+    "login": {
+      "title": "Member Portal",
+      "subtitle": "Sign in to access your dashboard",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "forgotPassword": "Forgot your password?",
+      "notMember": "Not a member?",
+      "requestAccess": "Request access",
+      "backHome": "← Back to home",
+      "error": "Invalid email or password"
+    },
+    "signup": {
+      "title": "Join the Brotherhood",
+      "subtitle": "Create your member account",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "createAccount": "Create Account",
+      "creating": "Creating account...",
+      "checkEmail": "Check Your Email",
+      "emailSent": "We've sent a confirmation link to your email address. Please verify your email to continue.",
+      "backLogin": "Back to Login",
+      "alreadyAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "backHome": "← Back to home",
+      "error": "Failed to create account. Please try again."
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back,",
+    "signOut": "Sign out",
+    "overview": "Overview",
+    "profile": "Profile",
+    "subscription": "Subscription",
+    "schedule": "Schedule",
+    "payments": "Payments",
+    "admin": "Admin",
+    "allMembers": "All Members",
+    "home": {
+      "title": "Dashboard",
+      "subscription": "Subscription",
+      "trainingDays": "Training Days",
+      "memberSince": "Member Since",
+      "inactive": "Inactive",
+      "satSun": "Sat & Sun",
+      "manage": "Manage",
+      "viewSchedule": "View Schedule",
+      "viewProfile": "View Profile",
+      "trainingSchedule": "Training Schedule",
+      "weekendTraining": "Weekend Training",
+      "coachRustam": "Coach Rustam",
+      "noBooking": "Just show up. No booking required."
+    },
+    "profilePage": {
+      "title": "Profile",
+      "fullName": "Full Name",
+      "phone": "Phone",
+      "save": "Save Changes",
+      "saving": "Saving...",
+      "saved": "Saved successfully"
+    },
+    "subscriptionPage": {
+      "title": "Subscription",
+      "currentPlan": "Current Plan",
+      "planName": "Keystone Membership",
+      "active": "ACTIVE",
+      "inactive": "INACTIVE",
+      "price": "$100",
+      "perMonth": "CAD / month",
+      "features": [
+        "Unlimited training sessions",
+        "Access to all disciplines",
+        "Train with real coaches",
+        "Part of the brotherhood"
+      ],
+      "currentPeriod": "Current Period",
+      "nextBilling": "Next Billing Date",
+      "paymentMethod": "Payment Method",
+      "updatePayment": "Update payment method"
+    },
+    "schedulePage": {
+      "title": "Training Schedule",
+      "day": "Day",
+      "time": "Time",
+      "coach": "Coach",
+      "noBooking": "Just show up. No booking required."
+    },
+    "paymentsPage": {
+      "title": "Payment History",
+      "date": "Date",
+      "description": "Description",
+      "method": "Method",
+      "amount": "Amount",
+      "noHistory": "No payment history yet"
+    },
+    "adminPage": {
+      "title": "All Members",
+      "badge": "Admin",
+      "name": "Name",
+      "email": "Email",
+      "status": "Status",
+      "memberSince": "Member Since",
+      "active": "Active",
+      "inactive": "Inactive",
+      "noMembers": "No members found"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy",
+      "titleHighlight": "Policy",
+      "lastUpdated": "Last updated: January 2025",
+      "backHome": "← Back to Home"
+    },
+    "terms": {
+      "title": "Terms of",
+      "titleHighlight": "Service",
+      "lastUpdated": "Last updated: January 2025",
+      "backHome": "← Back to Home"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "404",
+      "message": "This page doesn't exist.",
+      "backHome": "Back to Home"
+    },
+    "error": {
+      "title": "Something went",
+      "titleHighlight": "wrong",
+      "message": "An unexpected error occurred.",
+      "tryAgain": "Try Again"
+    }
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "nav": {
+    "philosophy": "Philosophie",
+    "coaches": "L'équipe",
+    "training": "Entraînement",
+    "join": "Rejoindre",
+    "support": "Soutenir",
+    "memberPortal": "Espace membre"
+  },
+  "hero": {
+    "location": "Montréal, QC • 45.5017° N, 73.5673° O",
+    "title1": "Key",
+    "title2": "Stone",
+    "tagline1": "Envoie ta position. Montréal.",
+    "tagline2": "Entraînement authentique. Standards réels.",
+    "tagline3": "Sans compromis.",
+    "requestTrial": "Demander un essai",
+    "learnMore": "En savoir plus →"
+  },
+  "philosophy": {
+    "label": "01 • Philosophie",
+    "title1": "Si tu",
+    "title2": "sais,",
+    "title3": "tu sais",
+    "items": {
+      "noRecruit": {
+        "title": "On ne recrute pas",
+        "desc": "Tu demandes une séance d'essai. On s'entraîne ensemble. Les deux côtés évaluent. Si ça colle, bienvenue. Sinon, au revoir respectueux."
+      },
+      "protection": {
+        "title": "Protection d'abord",
+        "desc": "On filtre soigneusement pour protéger ceux qui sont déjà là. La sélectivité n'est pas de l'élitisme — c'est de la protection."
+      },
+      "realTraining": {
+        "title": "Entraînement authentique",
+        "desc": "C'est un camp de combat, pas un cours de fitness. Nos coachs viennent de Tchétchénie, du Daghestan. Vraie lignée, vrai entraînement."
+      },
+      "brotherhood": {
+        "title": "Fraternité",
+        "desc": "Chaque membre est une pierre angulaire — la clé de voûte qui maintient l'arche. Enlèves-en une, la structure s'affaiblit."
+      }
+    }
+  },
+  "values": {
+    "weWant": "On veut",
+    "weReject": "On refuse",
+    "want": {
+      "discipline": { "title": "Discipline", "subtitle": "Le fondement de tout" },
+      "respect": { "title": "Respect", "subtitle": "Pour la salle, les coachs, les uns les autres" },
+      "rightReasons": { "title": "Bonnes raisons", "subtitle": "Progression, pas ego" },
+      "protectors": { "title": "Protecteurs", "subtitle": "Ceux qui gardent la structure" }
+    },
+    "reject": {
+      "street": { "title": "Mentalité de rue", "subtitle": "On forme des guerriers, pas des fauteurs de troubles" },
+      "egos": { "title": "Egos démesurés", "subtitle": "Laisse-le à la porte ou n'entre pas" },
+      "disrespect": { "title": "Irrespect", "subtitle": "Envers quiconque dans cette salle" }
+    },
+    "noExceptions": "Aucune exception. Aucune seconde chance."
+  },
+  "coaches": {
+    "label": "02 • L'équipe",
+    "title1": "Pas des instructeurs de gym franchisée.",
+    "title2": "Vraie lignée. Vraie expérience.",
+    "title3": "Vrais standards.",
+    "coach": "COACH",
+    "exp": "EXP",
+    "origin": "ORIGINE",
+    "focus": "SPÉCIALITÉ",
+    "list": {
+      "rustam": { "name": "Rustam Dudaiev", "exp": "20+ ans", "origin": "Tchétchénie", "discipline": "Lutte" },
+      "vislan": { "name": "Vislan Dalkhaev", "exp": "15+ ans", "origin": "Daghestan", "discipline": "Boxe" },
+      "wassim": { "name": "Wassim", "exp": "7+ ans", "origin": "Maroc", "discipline": "Kickboxing" },
+      "ahmed": { "name": "Ahmed", "exp": "7+ ans", "origin": "Maroc", "discipline": "Grappling" }
+    }
+  },
+  "training": {
+    "label": "03 • Entraînement",
+    "title1": "Petit &",
+    "title2": "Intentionnel",
+    "description": "On n'essaie pas d'être le plus grand gym de Montréal. On construit la bonne communauté.",
+    "price": "100 $",
+    "currency": "CAD / MOIS",
+    "noFees": "AUCUNS FRAIS CACHÉS. AUCUN CONTRAT.",
+    "justTraining": "JUSTE L'ENTRAÎNEMENT.",
+    "schedule": "Horaire",
+    "disciplines": "Disciplines",
+    "saturday": "SAMEDI",
+    "sunday": "DIMANCHE",
+    "time": "8 h 30 - 9 h 30",
+    "wrestling": "LUTTE",
+    "disciplineList": ["Lutte", "Boxe", "Kickboxing", "Grappling"],
+    "gymFloor": "La salle"
+  },
+  "trial": {
+    "label": "04 • Entre dans la salle",
+    "title1": "Fais tes",
+    "title2": "preuves",
+    "subtitle": "Vois si c'est ta fraternité. On s'entraîne ensemble, puis les deux côtés décident.",
+    "fullName": "Nom complet *",
+    "phone": "Téléphone *",
+    "email": "Courriel *",
+    "whyTrain": "Pourquoi veux-tu t'entraîner avec nous?",
+    "placeholders": {
+      "name": "JEAN DUPONT",
+      "phone": "(555) 000-0000",
+      "email": "COURRIEL@ADRESSE.COM",
+      "message": "SOIS HONNÊTE."
+    },
+    "submit": "Envoyer la demande",
+    "submitting": "Envoi en cours...",
+    "success": {
+      "title": "Demande",
+      "titleHighlight": "reçue",
+      "message": "Un message WhatsApp a été préparé pour toi. Envoie-le pour compléter ta demande.",
+      "submitAnother": "Soumettre une autre demande"
+    },
+    "error": "Une erreur s'est produite. Réessaie ou appelle-nous directement."
+  },
+  "support": {
+    "quote": "On a bâti cette salle pour nos fils — pour chaque jeune de cette communauté qui a besoin d'apprendre ce que le travail et la discipline signifient vraiment. Les arts martiaux ne sont que l'outil. Ce sont les leçons qui comptent.",
+    "author": "Waled Al-Shabi, Fondateur",
+    "title": "Bâtir la prochaine génération",
+    "subtitle": "Ton soutien va directement à :",
+    "equipment": "// ÉQUIPEMENT",
+    "scholarships": "// BOURSES",
+    "expansion": "// EXPANSION",
+    "custom": "PERSONNALISÉ",
+    "enterAmount": "Entrer le montant",
+    "card": "Carte",
+    "paypal": "PayPal",
+    "contribute": "Contribuer {amount} $ CAD",
+    "processing": "Traitement...",
+    "securePayment": "Paiement sécurisé via",
+    "thankYou": "Merci pour ton don!",
+    "errors": {
+      "invalidAmount": "Veuillez entrer un montant valide",
+      "paymentFailed": "Échec du traitement. Veuillez réessayer.",
+      "paypalFailed": "Échec du paiement PayPal. Veuillez réessayer."
+    }
+  },
+  "footer": {
+    "description": "Une communauté sélective d'arts martiaux à Montréal. Entraînement authentique. Vrais coachs. Vrais standards.",
+    "location": "Saint-Laurent, Montréal",
+    "menu": "Menu",
+    "legal": "Légal",
+    "contact": "Contact",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "tagline1": "Entraînement authentique.",
+    "tagline2": "Vrais standards.",
+    "tagline3": "Sans compromis.",
+    "copyright": "© 2025 Keystone Arts Martiaux. Tous droits réservés."
+  },
+  "cookie": {
+    "message": "Nous utilisons des témoins pour améliorer ton expérience.",
+    "learnMore": "En savoir plus",
+    "accept": "Accepter",
+    "reject": "Refuser"
+  },
+  "auth": {
+    "login": {
+      "title": "Espace membre",
+      "subtitle": "Connecte-toi pour accéder à ton tableau de bord",
+      "email": "Courriel",
+      "password": "Mot de passe",
+      "signIn": "Se connecter",
+      "signingIn": "Connexion...",
+      "forgotPassword": "Mot de passe oublié?",
+      "notMember": "Pas encore membre?",
+      "requestAccess": "Demander l'accès",
+      "backHome": "← Retour à l'accueil",
+      "error": "Courriel ou mot de passe invalide"
+    },
+    "signup": {
+      "title": "Rejoins la fraternité",
+      "subtitle": "Crée ton compte membre",
+      "fullName": "Nom complet",
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "createAccount": "Créer le compte",
+      "creating": "Création du compte...",
+      "checkEmail": "Vérifie ton courriel",
+      "emailSent": "Nous avons envoyé un lien de confirmation à ton adresse courriel. Vérifie ton courriel pour continuer.",
+      "backLogin": "Retour à la connexion",
+      "alreadyAccount": "Tu as déjà un compte?",
+      "signIn": "Se connecter",
+      "backHome": "← Retour à l'accueil",
+      "error": "Échec de création du compte. Veuillez réessayer."
+    }
+  },
+  "dashboard": {
+    "welcome": "Bon retour,",
+    "signOut": "Déconnexion",
+    "overview": "Aperçu",
+    "profile": "Profil",
+    "subscription": "Abonnement",
+    "schedule": "Horaire",
+    "payments": "Paiements",
+    "admin": "Admin",
+    "allMembers": "Tous les membres",
+    "home": {
+      "title": "Tableau de bord",
+      "subscription": "Abonnement",
+      "trainingDays": "Jours d'entraînement",
+      "memberSince": "Membre depuis",
+      "inactive": "Inactif",
+      "satSun": "Sam & Dim",
+      "manage": "Gérer",
+      "viewSchedule": "Voir l'horaire",
+      "viewProfile": "Voir le profil",
+      "trainingSchedule": "Horaire d'entraînement",
+      "weekendTraining": "Entraînement de fin de semaine",
+      "coachRustam": "Coach Rustam",
+      "noBooking": "Présente-toi simplement. Aucune réservation requise."
+    },
+    "profilePage": {
+      "title": "Profil",
+      "fullName": "Nom complet",
+      "phone": "Téléphone",
+      "save": "Enregistrer",
+      "saving": "Enregistrement...",
+      "saved": "Enregistré avec succès"
+    },
+    "subscriptionPage": {
+      "title": "Abonnement",
+      "currentPlan": "Plan actuel",
+      "planName": "Abonnement Keystone",
+      "active": "ACTIF",
+      "inactive": "INACTIF",
+      "price": "100 $",
+      "perMonth": "CAD / mois",
+      "features": [
+        "Séances d'entraînement illimitées",
+        "Accès à toutes les disciplines",
+        "Entraîne-toi avec de vrais coachs",
+        "Partie de la fraternité"
+      ],
+      "currentPeriod": "Période actuelle",
+      "nextBilling": "Prochaine facturation",
+      "paymentMethod": "Méthode de paiement",
+      "updatePayment": "Mettre à jour le mode de paiement"
+    },
+    "schedulePage": {
+      "title": "Horaire d'entraînement",
+      "day": "Jour",
+      "time": "Heure",
+      "coach": "Coach",
+      "noBooking": "Présente-toi simplement. Aucune réservation requise."
+    },
+    "paymentsPage": {
+      "title": "Historique des paiements",
+      "date": "Date",
+      "description": "Description",
+      "method": "Méthode",
+      "amount": "Montant",
+      "noHistory": "Aucun historique de paiement"
+    },
+    "adminPage": {
+      "title": "Tous les membres",
+      "badge": "Admin",
+      "name": "Nom",
+      "email": "Courriel",
+      "status": "Statut",
+      "memberSince": "Membre depuis",
+      "active": "Actif",
+      "inactive": "Inactif",
+      "noMembers": "Aucun membre trouvé"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Politique de",
+      "titleHighlight": "confidentialité",
+      "lastUpdated": "Dernière mise à jour : janvier 2025",
+      "backHome": "← Retour à l'accueil"
+    },
+    "terms": {
+      "title": "Conditions",
+      "titleHighlight": "d'utilisation",
+      "lastUpdated": "Dernière mise à jour : janvier 2025",
+      "backHome": "← Retour à l'accueil"
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "404",
+      "message": "Cette page n'existe pas.",
+      "backHome": "Retour à l'accueil"
+    },
+    "error": {
+      "title": "Quelque chose",
+      "titleHighlight": "a mal tourné",
+      "message": "Une erreur inattendue s'est produite.",
+      "tryAgain": "Réessayer"
+    }
+  }
+}

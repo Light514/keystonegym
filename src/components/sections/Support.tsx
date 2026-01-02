@@ -63,7 +63,7 @@ export function Support() {
           <blockquote className="font-sans text-2xl md:text-4xl font-bold uppercase leading-tight mb-8">
             &ldquo;We built this room for our sons—for every kid in this community who needs to learn what hard work and discipline really mean. The martial arts are just the tool. The lessons are what matter.&rdquo;
           </blockquote>
-          <cite className="not-italic font-mono text-[#D4AF37]">— Walid, Founder</cite>
+          <cite className="not-italic font-mono text-[#D4AF37]">— Waled Al-Shabi, Founder</cite>
         </FadeIn>
       </div>
 

@@ -2,14 +2,19 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { RevealText } from '../animations/RevealText';
 import { FadeIn } from '../animations/FadeIn';
 import { Grid } from '../layout/Grid';
 import { Button } from '../ui/Button';
 import { KeystoneIcon } from '../icons/KeystoneIcon';
 import { NavLink } from '../NavLink';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 
 export function Hero() {
+  const t = useTranslations('hero');
+  const nav = useTranslations('nav');
+
   return (
     <>
       {/* HEADER / NAV */}
@@ -29,12 +34,15 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="hidden md:flex flex-col items-end gap-1 font-mono text-xs pointer-events-auto"
         >
-          <NavLink href="#philosophy">PHILOSOPHY</NavLink>
-          <NavLink href="#coaches">THE ROOM</NavLink>
-          <NavLink href="#training">TRAINING</NavLink>
-          <NavLink href="#join">JOIN</NavLink>
-          <NavLink href="#support">SUPPORT</NavLink>
-          <NavLink href="/auth/login">MEMBER PORTAL</NavLink>
+          <div className="mb-2">
+            <LanguageSwitcher />
+          </div>
+          <NavLink href="#philosophy">{nav('philosophy').toUpperCase()}</NavLink>
+          <NavLink href="#coaches">{nav('coaches').toUpperCase()}</NavLink>
+          <NavLink href="#training">{nav('training').toUpperCase()}</NavLink>
+          <NavLink href="#join">{nav('join').toUpperCase()}</NavLink>
+          <NavLink href="#support">{nav('support').toUpperCase()}</NavLink>
+          <NavLink href="auth/login">{nav('memberPortal').toUpperCase()}</NavLink>
         </motion.nav>
       </header>
 
@@ -56,7 +64,7 @@ export function Hero() {
           <div className="col-span-1 md:col-span-8 overflow-hidden">
             <RevealText delay={0.2}>
               <span className="font-mono text-xs md:text-sm uppercase tracking-wider block mb-4 text-[#D4AF37]">
-                Montreal, QC • 45.5017° N, 73.5673° W
+                {t('location')}
               </span>
             </RevealText>
 
@@ -67,7 +75,7 @@ export function Hero() {
                 transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                 className="font-sans text-[15vw] md:text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 text-white block"
               >
-                Key
+                {t('title1')}
               </motion.h1>
             </div>
 
@@ -78,7 +86,7 @@ export function Hero() {
                 transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
                 className="font-sans text-[15vw] md:text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] to-[#8C721F] block"
               >
-                Stone
+                {t('title2')}
               </motion.h1>
             </div>
           </div>
@@ -86,20 +94,20 @@ export function Hero() {
           <div className="col-span-1 md:col-span-4 flex flex-col justify-end items-start md:pl-8">
             <FadeIn delay={0.8} className="space-y-8">
               <p className="text-xl md:text-2xl font-medium leading-tight max-w-md text-zinc-300">
-                Send location. Montreal.<br />
-                Real training. Real standards.<br />
-                <span className="text-[#D4AF37]">No shortcuts.</span>
+                {t('tagline1')}<br />
+                {t('tagline2')}<br />
+                <span className="text-[#D4AF37]">{t('tagline3')}</span>
               </p>
 
               <div className="flex flex-col gap-4 w-full">
                 <a href="#join">
                   <Button className="w-full justify-between">
-                    Request Trial
+                    {t('requestTrial')}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                   </Button>
                 </a>
                 <a href="#philosophy" className="font-mono text-sm underline decoration-1 underline-offset-4 decoration-[#D4AF37] hover:text-[#D4AF37] transition-colors text-zinc-400">
-                  Learn More →
+                  {t('learnMore')}
                 </a>
               </div>
             </FadeIn>
