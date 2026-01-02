@@ -1,14 +1,84 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { RevealText } from '../animations/RevealText';
 import { FadeIn } from '../animations/FadeIn';
 import { Section } from '../layout/Section';
 import { Grid } from '../layout/Grid';
 import { Label } from '../layout/Label';
 import { Button } from '../ui/Button';
+import { trialRequestSchema, type TrialRequestInput } from '@/lib/validations';
 
 export function TrialForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<TrialRequestInput>({
+    resolver: zodResolver(trialRequestSchema),
+  });
+
+  const onSubmit = async (data: TrialRequestInput) => {
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/trial-requests', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit request');
+      }
+
+      setIsSuccess(true);
+      reset();
+    } catch (err) {
+      setError('Something went wrong. Please try again or call us directly.');
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (isSuccess) {
+    return (
+      <Section id="join" className="bg-[#0a0a0a] text-white" noBorder>
+        <Grid>
+          <div className="col-span-1 md:col-span-12 text-center py-16">
+            <FadeIn>
+              <div className="w-20 h-20 bg-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-8">
+                <Check className="w-10 h-10 text-black" />
+              </div>
+              <h2 className="font-sans text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-white">
+                Request <span className="text-[#D4AF37]">Received</span>
+              </h2>
+              <p className="text-xl text-zinc-400 max-w-md mx-auto">
+                We&apos;ll review your request and get back to you within 24 hours.
+              </p>
+              <button
+                onClick={() => setIsSuccess(false)}
+                className="mt-8 font-mono text-sm text-[#D4AF37] underline underline-offset-4"
+              >
+                Submit another request
+              </button>
+            </FadeIn>
+          </div>
+        </Grid>
+      </Section>
+    );
+  }
+
   return (
     <Section id="join" className="bg-[#0a0a0a] text-white" noBorder>
       <Grid>
@@ -27,30 +97,87 @@ export function TrialForm() {
 
         <div className="col-span-1 md:col-span-7">
           <FadeIn delay={0.4}>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2 group">
-                  <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">Full Name *</label>
-                  <input type="text" className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white" placeholder="JOHN DOE" />
+                  <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
+                    Full Name *
+                  </label>
+                  <input
+                    {...register('fullName')}
+                    type="text"
+                    className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
+                    placeholder="JOHN DOE"
+                  />
+                  {errors.fullName && (
+                    <p className="text-red-500 text-xs font-mono">{errors.fullName.message}</p>
+                  )}
                 </div>
                 <div className="space-y-2 group">
-                  <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">Phone *</label>
-                  <input type="tel" className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white" placeholder="(555) 000-0000" />
+                  <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
+                    Phone *
+                  </label>
+                  <input
+                    {...register('phone')}
+                    type="tel"
+                    className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
+                    placeholder="(555) 000-0000"
+                  />
+                  {errors.phone && (
+                    <p className="text-red-500 text-xs font-mono">{errors.phone.message}</p>
+                  )}
                 </div>
               </div>
 
               <div className="space-y-2 group">
-                <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">Email *</label>
-                <input type="email" className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white" placeholder="EMAIL@ADDRESS.COM" />
+                <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
+                  Email *
+                </label>
+                <input
+                  {...register('email')}
+                  type="email"
+                  className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
+                  placeholder="EMAIL@ADDRESS.COM"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-xs font-mono">{errors.email.message}</p>
+                )}
               </div>
 
               <div className="space-y-2 group">
-                <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">Why do you want to train with us?</label>
-                <textarea rows={3} className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none placeholder:text-zinc-800 transition-colors resize-none text-white" placeholder="BE HONEST."></textarea>
+                <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
+                  Why do you want to train with us?
+                </label>
+                <textarea
+                  {...register('message')}
+                  rows={3}
+                  className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none placeholder:text-zinc-800 transition-colors resize-none text-white"
+                  placeholder="BE HONEST."
+                />
               </div>
 
-              <Button className="w-full justify-center mt-8 shadow-[0px_0px_20px_0px_rgba(212,175,55,0.3)] hover:shadow-[0px_0px_30px_0px_rgba(212,175,55,0.5)]">
-                Submit Request <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              {error && (
+                <div className="p-4 bg-red-500/10 border border-red-500/30 rounded">
+                  <p className="text-red-500 text-sm font-mono">{error}</p>
+                </div>
+              )}
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full justify-center mt-8 shadow-[0px_0px_20px_0px_rgba(212,175,55,0.3)] hover:shadow-[0px_0px_30px_0px_rgba(212,175,55,0.5)] disabled:opacity-50"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-6 h-6 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    Submit Request
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                  </>
+                )}
               </Button>
             </form>
           </FadeIn>

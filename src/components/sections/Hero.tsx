@@ -34,7 +34,7 @@ export function Hero() {
           <NavLink href="#training">TRAINING</NavLink>
           <NavLink href="#join">JOIN</NavLink>
           <NavLink href="#support">SUPPORT</NavLink>
-          <NavLink href="#portal">MEMBER PORTAL</NavLink>
+          <NavLink href="/auth/login">MEMBER PORTAL</NavLink>
         </motion.nav>
       </header>
 
@@ -92,10 +92,12 @@ export function Hero() {
               </p>
 
               <div className="flex flex-col gap-4 w-full">
-                <Button className="w-full justify-between">
-                  Request Trial
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-                </Button>
+                <a href="#join">
+                  <Button className="w-full justify-between">
+                    Request Trial
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                  </Button>
+                </a>
                 <a href="#philosophy" className="font-mono text-sm underline decoration-1 underline-offset-4 decoration-[#D4AF37] hover:text-[#D4AF37] transition-colors text-zinc-400">
                   Learn More →
                 </a>

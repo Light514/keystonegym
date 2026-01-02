@@ -39,16 +39,26 @@ export function Footer() {
             <li><NavLink href="#" className="hover:text-[#D4AF37]">Training</NavLink></li>
             <li><NavLink href="#join" className="hover:text-[#D4AF37]">Join</NavLink></li>
             <li><NavLink href="#support" className="hover:text-[#D4AF37]">Support</NavLink></li>
-            <li><NavLink href="#portal" className="hover:text-[#D4AF37]">Member Portal</NavLink></li>
+            <li><NavLink href="/auth/login" className="hover:text-[#D4AF37]">Member Portal</NavLink></li>
           </ul>
         </div>
 
         <div className="col-span-1 md:col-span-3">
           <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">Contact</h4>
           <ul className="space-y-3 font-mono text-sm text-zinc-400">
-            <li className="flex items-center gap-2 group hover:text-[#D4AF37] transition-colors"><Phone className="w-4 h-4" /> (438) 622-7226</li>
-            <li className="flex items-center gap-2 group hover:text-[#D4AF37] transition-colors"><Mail className="w-4 h-4" /> ahmed.faraj2204@gmail.com</li>
-            <li className="flex items-center gap-2 group hover:text-[#D4AF37] transition-colors"><Clock className="w-4 h-4" /> Sat & Sun 8:30 AM</li>
+            <li>
+              <a href="tel:+14386227226" className="flex items-center gap-2 group hover:text-[#D4AF37] transition-colors">
+                <Phone className="w-4 h-4" /> (438) 622-7226
+              </a>
+            </li>
+            <li>
+              <a href="mailto:ahmed.faraj2204@gmail.com" className="flex items-center gap-2 group hover:text-[#D4AF37] transition-colors">
+                <Mail className="w-4 h-4" /> ahmed.faraj2204@gmail.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2 group hover:text-[#D4AF37] transition-colors">
+              <Clock className="w-4 h-4" /> Sat & Sun 8:30 AM
+            </li>
           </ul>
         </div>
 
