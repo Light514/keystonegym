@@ -2,11 +2,15 @@
 
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Grid } from '../layout/Grid';
 import { KeystoneIcon } from '../icons/KeystoneIcon';
 import { NavLink } from '../NavLink';
 
 export function Footer() {
+  const t = useTranslations('footer');
+  const nav = useTranslations('nav');
+
   return (
     <footer className="bg-black text-white px-4 md:px-8 py-12 md:py-24 relative">
       <motion.div
@@ -23,36 +27,36 @@ export function Footer() {
             KEYSTONE
           </h2>
           <p className="text-sm font-medium max-w-xs mb-8 text-zinc-400">
-            A selective martial arts training community in Montreal. Real training. Real coaches. Real standards.
+            {t('description')}
           </p>
           <div className="flex items-center gap-2 font-mono text-xs text-zinc-600">
             <MapPin className="w-4 h-4" />
-            <span>Saint Laurent, Montreal</span>
+            <span>{t('location')}</span>
           </div>
         </div>
 
         <div className="col-span-1 md:col-span-2">
-          <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">Menu</h4>
+          <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">{t('menu')}</h4>
           <ul className="space-y-3 font-mono text-sm text-zinc-400">
-            <li><NavLink href="#philosophy" className="hover:text-[#D4AF37]">Philosophy</NavLink></li>
-            <li><NavLink href="#coaches" className="hover:text-[#D4AF37]">Coaches</NavLink></li>
-            <li><NavLink href="#training" className="hover:text-[#D4AF37]">Training</NavLink></li>
-            <li><NavLink href="#join" className="hover:text-[#D4AF37]">Join</NavLink></li>
-            <li><NavLink href="#support" className="hover:text-[#D4AF37]">Support</NavLink></li>
-            <li><NavLink href="/auth/login" className="hover:text-[#D4AF37]">Member Portal</NavLink></li>
+            <li><NavLink href="#philosophy" className="hover:text-[#D4AF37]">{nav('philosophy')}</NavLink></li>
+            <li><NavLink href="#coaches" className="hover:text-[#D4AF37]">{nav('coaches')}</NavLink></li>
+            <li><NavLink href="#training" className="hover:text-[#D4AF37]">{nav('training')}</NavLink></li>
+            <li><NavLink href="#join" className="hover:text-[#D4AF37]">{nav('join')}</NavLink></li>
+            <li><NavLink href="#support" className="hover:text-[#D4AF37]">{nav('support')}</NavLink></li>
+            <li><NavLink href="/auth/login" className="hover:text-[#D4AF37]">{nav('memberPortal')}</NavLink></li>
           </ul>
         </div>
 
         <div className="col-span-1 md:col-span-1">
-          <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">Legal</h4>
+          <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">{t('legal')}</h4>
           <ul className="space-y-3 font-mono text-sm text-zinc-400">
-            <li><NavLink href="/privacy" className="hover:text-[#D4AF37]">Privacy</NavLink></li>
-            <li><NavLink href="/terms" className="hover:text-[#D4AF37]">Terms</NavLink></li>
+            <li><NavLink href="/privacy" className="hover:text-[#D4AF37]">{t('privacy')}</NavLink></li>
+            <li><NavLink href="/terms" className="hover:text-[#D4AF37]">{t('terms')}</NavLink></li>
           </ul>
         </div>
 
         <div className="col-span-1 md:col-span-3">
-          <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">Contact</h4>
+          <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">{t('contact')}</h4>
           <ul className="space-y-3 font-mono text-sm text-zinc-400">
             <li>
               <a href="tel:+14386227226" className="flex items-center gap-2 group hover:text-[#D4AF37] transition-colors">
@@ -72,12 +76,12 @@ export function Footer() {
 
         <div className="col-span-1 md:col-span-2 flex flex-col justify-end items-start md:items-end text-left md:text-right">
           <div className="font-sans font-bold text-xl uppercase leading-none mb-2 text-white">
-            Real Training.<br />
-            Real Standards.<br />
-            No Shortcuts.
+            {t('tagline1')}<br />
+            {t('tagline2')}<br />
+            {t('tagline3')}
           </div>
           <p className="font-mono text-[10px] text-zinc-700 mt-8">
-            © 2025 Keystone Martial Arts. All rights reserved.
+            {t('copyright')}
           </p>
         </div>
       </Grid>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '../animations/FadeIn';
 import { ScaleIn } from '../animations/ScaleIn';
 import { Section } from '../layout/Section';
@@ -13,6 +14,7 @@ import { cn } from '../ui/cn';
 const DONATION_AMOUNTS = [25, 50, 100];
 
 export function Support() {
+  const t = useTranslations('support');
   const [selectedAmount, setSelectedAmount] = useState(50);
   const [customAmount, setCustomAmount] = useState('');
   const [isCustom, setIsCustom] = useState(false);
@@ -24,7 +26,7 @@ export function Support() {
 
   const handleStripeCheckout = async () => {
     if (finalAmount < 1) {
-      setError('Please enter a valid amount');
+      setError(t('errors.invalidAmount'));
       return;
     }
 
@@ -48,7 +50,7 @@ export function Support() {
         window.location.href = url;
       }
     } catch (err) {
-      setError('Failed to process payment. Please try again.');
+      setError(t('errors.paymentFailed'));
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -61,21 +63,21 @@ export function Support() {
         <FadeIn>
           <IslamicStarIcon className="w-12 h-12 mx-auto mb-8 text-[#D4AF37]" />
           <blockquote className="font-sans text-2xl md:text-4xl font-bold uppercase leading-tight mb-8">
-            &ldquo;We built this room for our sons—for every kid in this community who needs to learn what hard work and discipline really mean. The martial arts are just the tool. The lessons are what matter.&rdquo;
+            &ldquo;{t('quote')}&rdquo;
           </blockquote>
-          <cite className="not-italic font-mono text-[#D4AF37]">— Waled Al-Shabi, Founder</cite>
+          <cite className="not-italic font-mono text-[#D4AF37]">— {t('author')}</cite>
         </FadeIn>
       </div>
 
       <ScaleIn delay={0.2} className="border border-[#D4AF37]/30 p-8 md:p-12 max-w-5xl mx-auto bg-black/50 backdrop-blur-sm">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
           <div>
-            <h3 className="font-sans text-3xl font-bold uppercase mb-2">Build the Next Generation</h3>
-            <p className="font-mono text-sm text-zinc-500">Your support goes directly to:</p>
+            <h3 className="font-sans text-3xl font-bold uppercase mb-2">{t('title')}</h3>
+            <p className="font-mono text-sm text-zinc-500">{t('subtitle')}</p>
             <div className="flex gap-4 mt-2 font-mono text-xs text-[#D4AF37]">
-              <span>// EQUIPMENT</span>
-              <span>// SCHOLARSHIPS</span>
-              <span>// EXPANSION</span>
+              <span>{t('equipment')}</span>
+              <span>{t('scholarships')}</span>
+              <span>{t('expansion')}</span>
             </div>
           </div>
         </div>
@@ -123,7 +125,7 @@ export function Support() {
               )}
             />
             <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
-              CUSTOM
+              {t('custom')}
             </span>
           </button>
         </div>
@@ -138,7 +140,7 @@ export function Support() {
                 min="1"
                 value={customAmount}
                 onChange={(e) => setCustomAmount(e.target.value)}
-                placeholder="Enter amount"
+                placeholder={t('enterAmount')}
                 className="w-full bg-transparent border-b-2 border-[#D4AF37] py-2 text-2xl font-mono text-center outline-none text-white placeholder:text-zinc-600"
               />
               <span className="text-sm font-mono text-zinc-500">CAD</span>
@@ -157,7 +159,7 @@ export function Support() {
                 : "text-zinc-500 hover:text-zinc-300"
             )}
           >
-            Card
+            {t('card')}
           </button>
           <button
             onClick={() => setPaymentMethod('paypal')}
@@ -168,7 +170,7 @@ export function Support() {
                 : "text-zinc-500 hover:text-zinc-300"
             )}
           >
-            PayPal
+            {t('paypal')}
           </button>
         </div>
 
@@ -189,10 +191,10 @@ export function Support() {
               {isLoading ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  Processing...
+                  {t('processing')}
                 </>
               ) : (
-                `Contribute $${finalAmount} CAD`
+                t('contribute', { amount: finalAmount })
               )}
             </Button>
           ) : (
@@ -226,17 +228,17 @@ export function Support() {
                 }}
                 onApprove={async (_data, actions) => {
                   await actions.order?.capture();
-                  alert('Thank you for your donation!');
+                  alert(t('thankYou'));
                 }}
                 onError={(err) => {
                   console.error('PayPal error:', err);
-                  setError('PayPal payment failed. Please try again.');
+                  setError(t('errors.paypalFailed'));
                 }}
               />
             </PayPalScriptProvider>
           )}
           <p className="mt-4 text-xs font-mono text-zinc-600 text-center">
-            Secure payment via {paymentMethod === 'stripe' ? 'Stripe' : 'PayPal'}.
+            {t('securePayment')} {paymentMethod === 'stripe' ? 'Stripe' : 'PayPal'}.
           </p>
         </div>
       </ScaleIn>

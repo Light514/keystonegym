@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export function CookieConsent() {
+  const t = useTranslations('cookie');
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
@@ -24,9 +26,9 @@ export function CookieConsent() {
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-black border-t border-[#D4AF37]/30">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-zinc-400 text-center sm:text-left">
-          We use cookies to improve your experience.{' '}
+          {t('message')}{' '}
           <Link href="/privacy" className="text-[#D4AF37] hover:underline">
-            Learn more
+            {t('learnMore')}
           </Link>
         </p>
         <div className="flex gap-3">
@@ -34,13 +36,13 @@ export function CookieConsent() {
             onClick={() => handleConsent(false)}
             className="px-6 py-2 border border-zinc-600 text-zinc-400 font-bold text-sm uppercase tracking-wide hover:border-zinc-400 hover:text-white transition-colors whitespace-nowrap"
           >
-            Reject
+            {t('reject')}
           </button>
           <button
             onClick={() => handleConsent(true)}
             className="px-6 py-2 bg-[#D4AF37] text-black font-bold text-sm uppercase tracking-wide hover:bg-[#b8963a] transition-colors whitespace-nowrap"
           >
-            Accept
+            {t('accept')}
           </button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { RevealText } from '../animations/RevealText';
 import { FadeIn } from '../animations/FadeIn';
 import { Section } from '../layout/Section';
@@ -13,6 +14,7 @@ import { Button } from '../ui/Button';
 import { trialRequestSchema, type TrialRequestInput } from '@/lib/validations';
 
 export function TrialForm() {
+  const t = useTranslations('trial');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -62,7 +64,7 @@ Submitted via keystonegym.com`;
       setIsSuccess(true);
       reset();
     } catch (err) {
-      setError('Something went wrong. Please try again or call us directly.');
+      setError(t('error'));
       console.error(err);
     } finally {
       setIsSubmitting(false);
@@ -79,16 +81,16 @@ Submitted via keystonegym.com`;
                 <Check className="w-10 h-10 text-black" />
               </div>
               <h2 className="font-sans text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-white">
-                Request <span className="text-[#D4AF37]">Received</span>
+                {t('success.title')} <span className="text-[#D4AF37]">{t('success.titleHighlight')}</span>
               </h2>
               <p className="text-xl text-zinc-400 max-w-md mx-auto">
-                A WhatsApp message has been prepared for you. Send it to complete your request.
+                {t('success.message')}
               </p>
               <button
                 onClick={() => setIsSuccess(false)}
                 className="mt-8 font-mono text-sm text-[#D4AF37] underline underline-offset-4"
               >
-                Submit another request
+                {t('success.submitAnother')}
               </button>
             </FadeIn>
           </div>
@@ -101,14 +103,14 @@ Submitted via keystonegym.com`;
     <Section id="join" className="bg-[#0a0a0a] text-white" noBorder>
       <Grid>
         <div className="col-span-1 md:col-span-5">
-          <Label className="text-[#D4AF37]">04 • Step Into The Room</Label>
+          <Label className="text-[#D4AF37]">{t('label')}</Label>
           <div className="font-sans text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.85] text-white">
-            <RevealText>Prove</RevealText>
-            <RevealText delay={0.1}><span className="text-[#D4AF37]">Yourself</span></RevealText>
+            <RevealText>{t('title1')}</RevealText>
+            <RevealText delay={0.1}><span className="text-[#D4AF37]">{t('title2')}</span></RevealText>
           </div>
           <FadeIn delay={0.2}>
             <p className="text-xl font-medium max-w-sm text-zinc-400">
-              See if this is your brotherhood. We&apos;ll train together, then both sides decide.
+              {t('subtitle')}
             </p>
           </FadeIn>
         </div>
@@ -119,13 +121,13 @@ Submitted via keystonegym.com`;
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2 group">
                   <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
-                    Full Name *
+                    {t('fullName')}
                   </label>
                   <input
                     {...register('fullName')}
                     type="text"
                     className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
-                    placeholder="JOHN DOE"
+                    placeholder={t('placeholders.name')}
                   />
                   {errors.fullName && (
                     <p className="text-red-500 text-xs font-mono">{errors.fullName.message}</p>
@@ -133,13 +135,13 @@ Submitted via keystonegym.com`;
                 </div>
                 <div className="space-y-2 group">
                   <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
-                    Phone *
+                    {t('phone')}
                   </label>
                   <input
                     {...register('phone')}
                     type="tel"
                     className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
-                    placeholder="(555) 000-0000"
+                    placeholder={t('placeholders.phone')}
                   />
                   {errors.phone && (
                     <p className="text-red-500 text-xs font-mono">{errors.phone.message}</p>
@@ -149,13 +151,13 @@ Submitted via keystonegym.com`;
 
               <div className="space-y-2 group">
                 <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
-                  Email *
+                  {t('email')}
                 </label>
                 <input
                   {...register('email')}
                   type="email"
                   className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
-                  placeholder="EMAIL@ADDRESS.COM"
+                  placeholder={t('placeholders.email')}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs font-mono">{errors.email.message}</p>
@@ -164,13 +166,13 @@ Submitted via keystonegym.com`;
 
               <div className="space-y-2 group">
                 <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
-                  Why do you want to train with us?
+                  {t('whyTrain')}
                 </label>
                 <textarea
                   {...register('message')}
                   rows={3}
                   className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none placeholder:text-zinc-800 transition-colors resize-none text-white"
-                  placeholder="BE HONEST."
+                  placeholder={t('placeholders.message')}
                 />
               </div>
 
@@ -188,11 +190,11 @@ Submitted via keystonegym.com`;
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-6 h-6 animate-spin" />
-                    Submitting...
+                    {t('submitting')}
                   </>
                 ) : (
                   <>
-                    Submit Request
+                    {t('submit')}
                     <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                   </>
                 )}
