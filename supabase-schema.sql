@@ -10,6 +10,7 @@ CREATE TABLE members (
   email TEXT UNIQUE NOT NULL,
   full_name TEXT NOT NULL,
   phone TEXT,
+  role TEXT DEFAULT 'member' CHECK (role IN ('admin', 'member')),
   subscription_status TEXT DEFAULT 'inactive' CHECK (subscription_status IN ('active', 'inactive', 'cancelled')),
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
@@ -62,6 +63,7 @@ CREATE TABLE payment_history (
 
 -- Create indexes for better query performance
 CREATE INDEX idx_members_email ON members(email);
+CREATE INDEX idx_members_role ON members(role);
 CREATE INDEX idx_subscriptions_member ON subscriptions(member_id);
 CREATE INDEX idx_subscriptions_stripe ON subscriptions(stripe_subscription_id);
 CREATE INDEX idx_payment_history_member ON payment_history(member_id);
@@ -81,6 +83,12 @@ CREATE POLICY "Users can view own member data" ON members
 
 CREATE POLICY "Users can update own member data" ON members
   FOR UPDATE USING (auth.jwt() ->> 'email' = email);
+
+-- Admins can view all members
+CREATE POLICY "Admins can view all members" ON members
+  FOR SELECT USING (
+    EXISTS (SELECT 1 FROM members WHERE email = auth.jwt() ->> 'email' AND role = 'admin')
+  );
 
 -- Subscriptions: Users can view their own subscriptions
 CREATE POLICY "Users can view own subscriptions" ON subscriptions

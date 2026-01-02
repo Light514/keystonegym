@@ -91,7 +91,7 @@ export function Training() {
                 <span className="font-sans font-black text-4xl uppercase text-white drop-shadow-md group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">Gym Floor</span>
               </div>
               <img
-                src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=2069&auto=format&fit=crop"
+                src="/images/gym-floor.webp"
                 alt="Gym Floor"
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 ease-[cubic-bezier(0.16,1,0.3,1)]"
               />

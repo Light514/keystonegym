@@ -210,21 +210,22 @@ export function Support() {
                   label: 'donate',
                 }}
                 disabled={finalAmount < 1}
-                createOrder={async () => {
-                  const response = await fetch('/api/donations/paypal', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ amount: finalAmount }),
+                createOrder={(_data, actions) => {
+                  return actions.order.create({
+                    intent: 'CAPTURE',
+                    purchase_units: [
+                      {
+                        amount: {
+                          currency_code: 'CAD',
+                          value: finalAmount.toString(),
+                        },
+                        description: 'Keystone Gym Donation',
+                      },
+                    ],
                   });
-                  const { orderId } = await response.json();
-                  return orderId;
                 }}
-                onApprove={async (data) => {
-                  await fetch('/api/donations/paypal/capture', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ orderId: data.orderID }),
-                  });
+                onApprove={async (_data, actions) => {
+                  await actions.order?.capture();
                   alert('Thank you for your donation!');
                 }}
                 onError={(err) => {

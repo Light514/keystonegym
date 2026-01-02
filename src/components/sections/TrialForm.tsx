@@ -26,6 +26,21 @@ export function TrialForm() {
     resolver: zodResolver(trialRequestSchema),
   });
 
+  const sendWhatsAppNotification = (data: TrialRequestInput) => {
+    const phone = '14386227226'; // (438) 622-7226
+    const message = `🥊 NEW TRIAL REQUEST
+
+Name: ${data.fullName}
+Phone: ${data.phone}
+Email: ${data.email}
+${data.message ? `\nMessage: ${data.message}` : ''}
+
+Submitted via keystonegym.com`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
+  };
+
   const onSubmit = async (data: TrialRequestInput) => {
     setIsSubmitting(true);
     setError(null);
@@ -40,6 +55,9 @@ export function TrialForm() {
       if (!response.ok) {
         throw new Error('Failed to submit request');
       }
+
+      // Send WhatsApp notification
+      sendWhatsAppNotification(data);
 
       setIsSuccess(true);
       reset();
@@ -64,7 +82,7 @@ export function TrialForm() {
                 Request <span className="text-[#D4AF37]">Received</span>
               </h2>
               <p className="text-xl text-zinc-400 max-w-md mx-auto">
-                We&apos;ll review your request and get back to you within 24 hours.
+                A WhatsApp message has been prepared for you. Send it to complete your request.
               </p>
               <button
                 onClick={() => setIsSuccess(false)}
