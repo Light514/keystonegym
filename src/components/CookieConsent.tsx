@@ -13,8 +13,8 @@ export function CookieConsent() {
     }
   }, []);
 
-  const acceptCookies = () => {
-    localStorage.setItem('cookie-consent', 'accepted');
+  const handleConsent = (accepted: boolean) => {
+    localStorage.setItem('cookie-consent', accepted ? 'accepted' : 'rejected');
     setShowBanner(false);
   };
 
@@ -29,12 +29,20 @@ export function CookieConsent() {
             Learn more
           </Link>
         </p>
-        <button
-          onClick={acceptCookies}
-          className="px-6 py-2 bg-[#D4AF37] text-black font-bold text-sm uppercase tracking-wide hover:bg-[#b8963a] transition-colors whitespace-nowrap"
-        >
-          Accept
-        </button>
+        <div className="flex gap-3">
+          <button
+            onClick={() => handleConsent(false)}
+            className="px-6 py-2 border border-zinc-600 text-zinc-400 font-bold text-sm uppercase tracking-wide hover:border-zinc-400 hover:text-white transition-colors whitespace-nowrap"
+          >
+            Reject
+          </button>
+          <button
+            onClick={() => handleConsent(true)}
+            className="px-6 py-2 bg-[#D4AF37] text-black font-bold text-sm uppercase tracking-wide hover:bg-[#b8963a] transition-colors whitespace-nowrap"
+          >
+            Accept
+          </button>
+        </div>
       </div>
     </div>
   );
