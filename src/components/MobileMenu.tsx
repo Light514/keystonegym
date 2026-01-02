@@ -34,7 +34,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     { href: '#training', label: nav('training') },
     { href: '#join', label: nav('join') },
     { href: '#support', label: nav('support') },
-    { href: 'auth/login', label: nav('memberPortal') },
+    { href: '/auth/login', label: nav('memberPortal') },
   ];
 
   const handleLinkClick = () => {

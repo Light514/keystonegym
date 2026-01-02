@@ -46,7 +46,7 @@ export function Hero() {
           <NavLink href="#training">{nav('training').toUpperCase()}</NavLink>
           <NavLink href="#join">{nav('join').toUpperCase()}</NavLink>
           <NavLink href="#support">{nav('support').toUpperCase()}</NavLink>
-          <NavLink href="auth/login">{nav('memberPortal').toUpperCase()}</NavLink>
+          <NavLink href="/auth/login">{nav('memberPortal').toUpperCase()}</NavLink>
         </motion.nav>
 
         {/* Mobile Hamburger Button */}
