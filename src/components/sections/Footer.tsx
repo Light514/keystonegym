@@ -34,12 +34,20 @@ export function Footer() {
         <div className="col-span-1 md:col-span-2">
           <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">Menu</h4>
           <ul className="space-y-3 font-mono text-sm text-zinc-400">
-            <li><NavLink href="#" className="hover:text-[#D4AF37]">Philosophy</NavLink></li>
-            <li><NavLink href="#" className="hover:text-[#D4AF37]">Coaches</NavLink></li>
-            <li><NavLink href="#" className="hover:text-[#D4AF37]">Training</NavLink></li>
+            <li><NavLink href="#philosophy" className="hover:text-[#D4AF37]">Philosophy</NavLink></li>
+            <li><NavLink href="#coaches" className="hover:text-[#D4AF37]">Coaches</NavLink></li>
+            <li><NavLink href="#training" className="hover:text-[#D4AF37]">Training</NavLink></li>
             <li><NavLink href="#join" className="hover:text-[#D4AF37]">Join</NavLink></li>
             <li><NavLink href="#support" className="hover:text-[#D4AF37]">Support</NavLink></li>
             <li><NavLink href="/auth/login" className="hover:text-[#D4AF37]">Member Portal</NavLink></li>
+          </ul>
+        </div>
+
+        <div className="col-span-1 md:col-span-1">
+          <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">Legal</h4>
+          <ul className="space-y-3 font-mono text-sm text-zinc-400">
+            <li><NavLink href="/privacy" className="hover:text-[#D4AF37]">Privacy</NavLink></li>
+            <li><NavLink href="/terms" className="hover:text-[#D4AF37]">Terms</NavLink></li>
           </ul>
         </div>
 
@@ -62,7 +70,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="col-span-1 md:col-span-3 flex flex-col justify-end items-start md:items-end text-left md:text-right">
+        <div className="col-span-1 md:col-span-2 flex flex-col justify-end items-start md:items-end text-left md:text-right">
           <div className="font-sans font-bold text-xl uppercase leading-none mb-2 text-white">
             Real Training.<br />
             Real Standards.<br />
