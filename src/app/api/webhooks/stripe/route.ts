@@ -58,6 +58,13 @@ export async function POST(request: NextRequest) {
       const customer = await stripe.customers.retrieve(customerId) as Stripe.Customer;
 
       if (customer.email) {
+        // Get member ID
+        const { data: member } = await supabase
+          .from('members')
+          .select('id')
+          .eq('email', customer.email)
+          .single();
+
         await supabase
           .from('members')
           .update({
@@ -78,6 +85,8 @@ export async function POST(request: NextRequest) {
         // Update or create subscription record
         await supabase.from('subscriptions').upsert({
           stripe_subscription_id: subscription.id,
+          stripe_customer_id: customerId,
+          member_id: member?.id,
           status: subscription.status,
           current_period_start: new Date(periodStart * 1000).toISOString(),
           current_period_end: new Date(periodEnd * 1000).toISOString(),

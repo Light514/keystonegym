@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
-import { CreditCard, Check, AlertCircle } from 'lucide-react';
+import { Check, AlertCircle } from 'lucide-react';
+import { PaymentMethodCard } from './PaymentMethodCard';
 
 export default async function SubscriptionPage() {
   const supabase = await createClient();
@@ -19,6 +20,17 @@ export default async function SubscriptionPage() {
 
   const isActive = member?.subscription_status === 'active';
 
+  // Get price from subscription or default to 100
+  const price = subscription?.price_amount ? subscription.price_amount / 100 : 100;
+
+  // Get features from subscription or use defaults
+  const features = subscription?.plan_features || [
+    'Unlimited training sessions',
+    'Access to all disciplines',
+    'Train with real coaches',
+    'Part of the brotherhood',
+  ];
+
   return (
     <div className="pt-16 max-w-4xl">
       <h1 className="font-sans text-4xl font-black uppercase tracking-tighter mb-8">
@@ -30,7 +42,9 @@ export default async function SubscriptionPage() {
         <div className="flex items-start justify-between mb-6">
           <div>
             <p className="font-mono text-xs text-zinc-500 uppercase mb-2">Current Plan</p>
-            <h2 className="font-sans text-3xl font-bold text-white">Keystone Membership</h2>
+            <h2 className="font-sans text-3xl font-bold text-white">
+              {subscription?.plan_name || 'Keystone Membership'}
+            </h2>
           </div>
           <div className={`flex items-center gap-2 px-4 py-2 rounded-full ${
             isActive ? 'bg-green-500/10 text-green-500' : 'bg-zinc-800 text-zinc-400'
@@ -43,17 +57,12 @@ export default async function SubscriptionPage() {
         </div>
 
         <div className="flex items-baseline gap-2 mb-6">
-          <span className="text-5xl font-sans font-bold text-[#D4AF37]">$100</span>
+          <span className="text-5xl font-sans font-bold text-[#D4AF37]">${price}</span>
           <span className="font-mono text-zinc-500">CAD / month</span>
         </div>
 
         <ul className="space-y-3 mb-8">
-          {[
-            'Unlimited training sessions',
-            'Access to all disciplines',
-            'Train with real coaches',
-            'Part of the brotherhood',
-          ].map((feature, i) => (
+          {(features as string[]).map((feature, i) => (
             <li key={i} className="flex items-center gap-3 text-zinc-300">
               <Check className="w-5 h-5 text-[#D4AF37]" />
               {feature}
@@ -83,21 +92,7 @@ export default async function SubscriptionPage() {
       </div>
 
       {/* Payment Method */}
-      <div className="bg-[#0a0a0a] border border-zinc-800 rounded-lg p-8">
-        <h3 className="font-sans text-xl font-bold uppercase mb-6">Payment Method</h3>
-
-        <div className="flex items-center gap-4 p-4 bg-zinc-900 rounded-lg">
-          <CreditCard className="w-8 h-8 text-[#D4AF37]" />
-          <div>
-            <p className="font-sans font-bold text-white">•••• •••• •••• 4242</p>
-            <p className="font-mono text-sm text-zinc-500">Expires 12/25</p>
-          </div>
-        </div>
-
-        <button className="mt-4 font-mono text-sm text-[#D4AF37] hover:underline">
-          Update payment method
-        </button>
-      </div>
+      <PaymentMethodCard hasSubscription={!!subscription?.stripe_subscription_id} />
     </div>
   );
 }

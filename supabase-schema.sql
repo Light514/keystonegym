@@ -21,10 +21,13 @@ CREATE TABLE subscriptions (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   member_id UUID REFERENCES members(id) ON DELETE CASCADE,
   stripe_subscription_id TEXT UNIQUE,
+  stripe_customer_id TEXT,
   status TEXT DEFAULT 'inactive',
   current_period_start TIMESTAMPTZ,
   current_period_end TIMESTAMPTZ,
   price_amount INTEGER DEFAULT 0,
+  plan_name TEXT DEFAULT 'Monthly Membership',
+  plan_features JSONB DEFAULT '["Unlimited training sessions", "Access to all disciplines", "Train with real coaches", "Part of the brotherhood"]',
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
