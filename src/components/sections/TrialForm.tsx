@@ -61,6 +61,9 @@ Submitted via keystonegym.com`;
       // Send WhatsApp notification
       sendWhatsAppNotification(data);
 
+      // Easter egg 🦅
+      console.log('%c"Alhamdulillah, brother. You know this." - Your request was sent! 🦅', 'color: #D4AF37; font-size: 12px;');
+
       setIsSuccess(true);
       reset();
     } catch (err) {

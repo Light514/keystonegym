@@ -86,12 +86,9 @@ export function Training() {
             </div>
           </div>
 
-          {/* Image Placeholder */}
+          {/* Gym Floor Image */}
           <ScaleIn delay={0.5}>
             <div className="w-full h-64 md:h-80 bg-zinc-900 mt-8 relative overflow-hidden group border border-[#D4AF37]/50">
-              <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                <span className="font-sans font-black text-4xl uppercase text-white drop-shadow-md group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">{t('gymFloor')}</span>
-              </div>
               <img
                 src="/images/gym-floor.webp"
                 alt={t('gymFloor')}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Menu } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -17,6 +17,25 @@ export function Hero() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const t = useTranslations('hero');
   const nav = useTranslations('nav');
+
+  // Easter egg 🦅
+  useEffect(() => {
+    console.log(
+      `%c🥊 KEYSTONE GYM 🥊%c
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+%cSend location. Montreal.%c
+"If you know, you know."
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+%c🔍 Looking for work? We train warriors.%c
+   keystonegym.com/#join`,
+      'font-size: 20px; font-weight: bold; color: #D4AF37;',
+      'color: #D4AF37;',
+      'font-size: 14px; color: #fff;',
+      'font-size: 12px; color: #888; font-style: italic;',
+      'font-size: 11px; color: #D4AF37;',
+      'font-size: 11px; color: #888;'
+    );
+  }, []);
 
   return (
     <>

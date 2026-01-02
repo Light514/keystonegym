@@ -90,6 +90,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       address: false,
       telephone: false,
     },
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+      apple: '/favicon.ico',
+    },
   };
 }
 
