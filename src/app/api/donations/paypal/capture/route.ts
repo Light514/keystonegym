@@ -1,14 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
 
-const PAYPAL_API_URL = process.env.NODE_ENV === 'production'
+// Use PAYPAL_MODE env var to control sandbox vs live, defaults to sandbox for safety
+const PAYPAL_MODE = process.env.PAYPAL_MODE || 'sandbox';
+const PAYPAL_API_URL = PAYPAL_MODE === 'live'
   ? 'https://api-m.paypal.com'
   : 'https://api-m.sandbox.paypal.com';
 
 async function getAccessToken() {
-  const auth = Buffer.from(
-    `${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}:${process.env.PAYPAL_CLIENT_SECRET}`
-  ).toString('base64');
+  const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
+  const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
+
+  if (!clientId || !clientSecret) {
+    throw new Error('PayPal credentials not configured');
+  }
+
+  const auth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
 
   const response = await fetch(`${PAYPAL_API_URL}/v1/oauth2/token`, {
     method: 'POST',
@@ -20,6 +26,12 @@ async function getAccessToken() {
   });
 
   const data = await response.json();
+
+  if (!response.ok) {
+    console.error('PayPal auth error:', data);
+    throw new Error(data.error_description || 'Failed to authenticate with PayPal');
+  }
+
   return data.access_token;
 }
 
@@ -49,27 +61,41 @@ export async function POST(request: NextRequest) {
 
     const captureData = await response.json();
 
-    if (captureData.status === 'COMPLETED') {
-      // Store in database
-      const supabase = await createClient();
-      const amount = parseFloat(
-        captureData.purchase_units[0].payments.captures[0].amount.value
+    if (!response.ok) {
+      console.error('PayPal capture error:', captureData);
+      return NextResponse.json(
+        { error: captureData.message || 'Failed to capture PayPal order' },
+        { status: response.status }
       );
+    }
 
-      await supabase.from('donations').insert({
-        amount: Math.round(amount * 100), // Store in cents
-        payment_provider: 'paypal',
-        payment_id: orderId,
-        status: 'completed',
-        email: captureData.payer?.email_address || null,
-      });
+    // Try to store in database (non-blocking)
+    if (captureData.status === 'COMPLETED') {
+      try {
+        const { createClient } = await import('@/lib/supabase/server');
+        const supabase = await createClient();
+        const amount = parseFloat(
+          captureData.purchase_units[0].payments.captures[0].amount.value
+        );
+
+        await supabase.from('donations').insert({
+          amount: Math.round(amount * 100),
+          payment_provider: 'paypal',
+          payment_id: orderId,
+          status: 'completed',
+          email: captureData.payer?.email_address || null,
+        });
+      } catch (dbError) {
+        console.error('Failed to store donation:', dbError);
+        // Continue - payment was successful
+      }
     }
 
     return NextResponse.json({ success: true, data: captureData });
   } catch (error) {
     console.error('PayPal capture error:', error);
     return NextResponse.json(
-      { error: 'Failed to capture PayPal order' },
+      { error: error instanceof Error ? error.message : 'Failed to capture PayPal order' },
       { status: 500 }
     );
   }
