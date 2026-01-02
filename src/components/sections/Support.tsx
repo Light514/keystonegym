@@ -92,19 +92,19 @@ export function Support() {
                 setIsCustom(false);
               }}
               className={cn(
-                "py-4 border transition-all duration-300 font-mono font-bold uppercase tracking-wider relative overflow-hidden group active:scale-95",
+                "py-4 border transition-all duration-300 font-mono font-bold uppercase tracking-wider relative overflow-hidden group active:scale-95 touch-manipulation cursor-pointer",
                 !isCustom && selectedAmount === amount
                   ? "bg-[#D4AF37] text-black border-[#D4AF37]"
-                  : "border-[#D4AF37]/30 text-[#D4AF37] hover:border-[#D4AF37]"
+                  : "border-[#D4AF37]/30 text-[#D4AF37] hover:border-[#D4AF37] active:border-[#D4AF37]"
               )}
             >
               <span
                 className={cn(
-                  "absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                  "absolute inset-0 transform -translate-x-full group-hover:translate-x-0 group-active:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   !isCustom && selectedAmount === amount ? "bg-white" : "bg-[#D4AF37]"
                 )}
               />
-              <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-black group-active:text-black">
                 ${amount}
               </span>
             </button>
@@ -112,19 +112,19 @@ export function Support() {
           <button
             onClick={() => setIsCustom(true)}
             className={cn(
-              "py-4 border transition-all duration-300 font-mono font-bold uppercase tracking-wider relative overflow-hidden group active:scale-95",
+              "py-4 border transition-all duration-300 font-mono font-bold uppercase tracking-wider relative overflow-hidden group active:scale-95 touch-manipulation cursor-pointer",
               isCustom
                 ? "bg-[#D4AF37] text-black border-[#D4AF37]"
-                : "border-[#D4AF37]/30 text-[#D4AF37] hover:border-[#D4AF37]"
+                : "border-[#D4AF37]/30 text-[#D4AF37] hover:border-[#D4AF37] active:border-[#D4AF37]"
             )}
           >
             <span
               className={cn(
-                "absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                "absolute inset-0 transform -translate-x-full group-hover:translate-x-0 group-active:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                 isCustom ? "bg-white" : "bg-[#D4AF37]"
               )}
             />
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-black group-active:text-black">
               {t('custom')}
             </span>
           </button>
