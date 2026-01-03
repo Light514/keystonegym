@@ -12,7 +12,7 @@ interface SectionProps {
 
 export function Section({ children, className, id, noBorder = false }: SectionProps) {
   return (
-    <section id={id} className={cn("w-full px-4 md:px-8 py-16 md:py-24 relative", className)}>
+    <section id={id} className={cn("w-full px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24 relative", className)}>
       {!noBorder && (
         <motion.div
           initial={{ scaleX: 0 }}

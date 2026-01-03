@@ -15,7 +15,7 @@ export function Values() {
   const t = useTranslations('values');
 
   return (
-    <section className="w-full bg-[#D4AF37] text-black px-4 md:px-8 py-24 relative overflow-hidden">
+    <section className="w-full bg-[#D4AF37] text-black px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24 relative overflow-hidden">
       {/* Octagon pattern overlay */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/hexellence.png')]"></div>
 
@@ -23,7 +23,7 @@ export function Values() {
         <div className="col-span-1 sm:col-span-6 md:col-span-6 pr-0 sm:pr-8 md:pr-12 pb-12 sm:pb-0 md:pb-0 mb-12 sm:mb-0 md:mb-0 border-b sm:border-b-0 md:border-b-0 border-black/10">
           <div className="flex items-center gap-4 mb-12">
             <FadeIn><Check className="w-10 sm:w-12 h-10 sm:h-12 text-black" /></FadeIn>
-            <h2 className="font-sans text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter overflow-hidden">
+            <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter">
               <RevealText>{t('weWant')}</RevealText>
             </h2>
           </div>
@@ -50,7 +50,7 @@ export function Values() {
         <div className="col-span-1 sm:col-span-6 md:col-span-6 sm:border-l md:border-l sm:border-black/10 md:border-black/10 sm:pl-8 md:pl-12">
           <div className="flex items-center gap-4 mb-12">
             <FadeIn delay={0.2}><X className="w-10 sm:w-12 h-10 sm:h-12 text-black" /></FadeIn>
-            <h2 className="font-sans text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter overflow-hidden">
+            <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter">
               <RevealText delay={0.2}>{t('weReject')}</RevealText>
             </h2>
           </div>

@@ -65,7 +65,7 @@ export function DashboardHeader({ user, isAdmin = false }: DashboardHeaderProps)
         <div className="flex items-center gap-2 sm:gap-4">
           <div className="hidden sm:flex items-center gap-2 px-3 sm:px-4 py-2 bg-zinc-800 rounded-lg">
             <UserIcon className="w-4 h-4 text-[#D4AF37]" />
-            <span className="font-mono text-xs sm:text-sm text-zinc-300 truncate max-w-[120px] sm:max-w-none">{user.email}</span>
+            <span className="font-mono text-xs sm:text-sm text-zinc-300 truncate max-w-[120px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-none">{user.email}</span>
           </div>
           <button
             onClick={handleSignOut}

@@ -36,8 +36,8 @@ export default async function AdminPage() {
       </div>
 
       <div className="bg-[#0a0a0a] border border-zinc-800 rounded-lg overflow-hidden">
-        {/* Table Header */}
-        <div className="grid grid-cols-4 gap-4 p-4 border-b border-zinc-800 font-mono text-xs uppercase text-zinc-500">
+        {/* Table Header - Desktop Only */}
+        <div className="hidden lg:grid grid-cols-4 gap-4 p-4 border-b border-zinc-800 font-mono text-xs uppercase text-zinc-500">
           <span>Name</span>
           <span>Email</span>
           <span>Status</span>
@@ -50,41 +50,87 @@ export default async function AdminPage() {
             members.map((member) => (
               <div
                 key={member.id}
-                className="grid grid-cols-4 gap-4 p-4 items-center hover:bg-zinc-900/50 transition-colors"
+                className="p-4 hover:bg-zinc-900/50 transition-colors"
               >
-                <div>
-                  <span className="font-sans font-bold text-white">
-                    {member.full_name}
+                {/* Desktop View - Table Row */}
+                <div className="hidden lg:grid grid-cols-4 gap-4 items-center">
+                  <div>
+                    <span className="font-sans font-bold text-white">
+                      {member.full_name}
+                    </span>
+                    {member.role === 'admin' && (
+                      <span className="ml-2 px-2 py-0.5 text-xs font-mono bg-[#D4AF37] text-black rounded">
+                        Admin
+                      </span>
+                    )}
+                  </div>
+                  <span className="font-mono text-sm text-zinc-400">
+                    {member.email}
                   </span>
-                  {member.role === 'admin' && (
-                    <span className="ml-2 px-2 py-0.5 text-xs font-mono bg-[#D4AF37] text-black rounded">
-                      Admin
-                    </span>
-                  )}
+                  <div>
+                    {member.subscription_status === 'active' ? (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-500/10 text-green-500 rounded-full text-sm font-mono">
+                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                        Active
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-500/10 text-zinc-500 rounded-full text-sm font-mono">
+                        <span className="w-2 h-2 bg-zinc-500 rounded-full"></span>
+                        Inactive
+                      </span>
+                    )}
+                  </div>
+                  <span className="font-mono text-sm text-zinc-500">
+                    {new Date(member.created_at).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric',
+                    })}
+                  </span>
                 </div>
-                <span className="font-mono text-sm text-zinc-400">
-                  {member.email}
-                </span>
-                <div>
-                  {member.subscription_status === 'active' ? (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-500/10 text-green-500 rounded-full text-sm font-mono">
-                      <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                      Active
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-500/10 text-zinc-500 rounded-full text-sm font-mono">
-                      <span className="w-2 h-2 bg-zinc-500 rounded-full"></span>
-                      Inactive
-                    </span>
-                  )}
+
+                {/* Mobile/Tablet View - Card */}
+                <div className="lg:hidden space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="font-sans font-bold text-white">
+                        {member.full_name}
+                      </span>
+                      {member.role === 'admin' && (
+                        <span className="px-2 py-0.5 text-xs font-mono bg-[#D4AF37] text-black rounded">
+                          Admin
+                        </span>
+                      )}
+                    </div>
+                    {member.subscription_status === 'active' ? (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-500/10 text-green-500 rounded-full text-sm font-mono">
+                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                        Active
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-500/10 text-zinc-500 rounded-full text-sm font-mono">
+                        <span className="w-2 h-2 bg-zinc-500 rounded-full"></span>
+                        Inactive
+                      </span>
+                    )}
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs uppercase text-zinc-600">Email:</span>
+                      <span className="font-mono text-sm text-zinc-400 truncate">{member.email}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs uppercase text-zinc-600">Member Since:</span>
+                      <span className="font-mono text-sm text-zinc-500">
+                        {new Date(member.created_at).toLocaleDateString('en-US', {
+                          month: 'short',
+                          day: 'numeric',
+                          year: 'numeric',
+                        })}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <span className="font-mono text-sm text-zinc-500">
-                  {new Date(member.created_at).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric',
-                  })}
-                </span>
               </div>
             ))
           ) : (

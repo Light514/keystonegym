@@ -75,7 +75,7 @@ export default async function SubscriptionPage() {
 
         {subscription && (
           <div className="border-t border-zinc-800 pt-6 mt-6">
-            <div className="grid grid-cols-2 gap-4 font-mono text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-sm">
               <div>
                 <p className="text-zinc-500">Current Period</p>
                 <p className="text-white">

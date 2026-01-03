@@ -12,7 +12,7 @@ export function Footer() {
   const nav = useTranslations('nav');
 
   return (
-    <footer className="bg-black text-white px-4 md:px-8 py-12 md:py-24 relative">
+    <footer className="bg-black text-white px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 relative">
       <motion.div
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
@@ -21,7 +21,7 @@ export function Footer() {
         className="absolute top-0 left-0 w-full h-px bg-[#D4AF37] origin-left"
       />
       <Grid>
-        <div className="col-span-1 md:col-span-4">
+        <div className="col-span-1 sm:col-span-3 md:col-span-4">
           <h2 className="font-sans font-black text-4xl mb-6 tracking-tighter text-[#D4AF37] flex items-center gap-3">
             <KeystoneIcon className="w-10 h-10" />
             KEYSTONE
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="col-span-1 md:col-span-2">
+        <div className="col-span-1 sm:col-span-3 md:col-span-2">
           <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">{t('menu')}</h4>
           <ul className="space-y-3 font-mono text-sm text-zinc-400">
             <li><NavLink href="#philosophy" className="hover:text-[#D4AF37]">{nav('philosophy')}</NavLink></li>
@@ -47,7 +47,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="col-span-1 md:col-span-1">
+        <div className="col-span-1 sm:col-span-2 md:col-span-1">
           <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">{t('legal')}</h4>
           <ul className="space-y-3 font-mono text-sm text-zinc-400">
             <li><NavLink href="/privacy" className="hover:text-[#D4AF37]">{t('privacy')}</NavLink></li>
@@ -55,7 +55,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="col-span-1 md:col-span-3">
+        <div className="col-span-1 sm:col-span-4 md:col-span-3">
           <h4 className="font-bold mb-6 font-sans uppercase text-[#D4AF37]">{t('contact')}</h4>
           <ul className="space-y-3 font-mono text-sm text-zinc-400">
             <li>
@@ -74,7 +74,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="col-span-1 md:col-span-2 flex flex-col justify-end items-start md:items-end text-left md:text-right">
+        <div className="col-span-1 sm:col-span-6 md:col-span-2 flex flex-col justify-end items-start sm:items-center md:items-end text-left sm:text-center md:text-right">
           <div className="font-sans font-bold text-xl uppercase leading-none mb-2 text-white">
             {t('tagline1')}<br />
             {t('tagline2')}<br />

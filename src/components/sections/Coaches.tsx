@@ -24,7 +24,7 @@ export function Coaches() {
       <Grid>
         <div className="col-span-1 sm:col-span-6 md:col-span-12 mb-12">
           <Label>{t('label')}</Label>
-          <h2 className="font-sans text-3xl sm:text-4xl md:text-6xl uppercase font-black leading-none max-w-4xl text-zinc-100">
+          <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase font-black leading-tight max-w-4xl text-zinc-100">
             <RevealText delay={0.1}>{t('title1')}</RevealText>
             <RevealText delay={0.2}><span className="text-[#D4AF37]">{t('title2').split('.')[0]}.</span> {t('title2').split('.')[1]?.trim() || ''}</RevealText>
             <RevealText delay={0.3}>{t('title3')}</RevealText>

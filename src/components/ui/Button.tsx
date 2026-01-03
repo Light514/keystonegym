@@ -5,7 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ children, variant = 'primary', className, ...props }: ButtonProps) {
-  const baseStyles = "px-8 py-4 font-sans font-bold uppercase tracking-tight text-lg flex items-center gap-2 relative overflow-hidden group transition-all duration-200 active:scale-[0.98] touch-manipulation cursor-pointer";
+  const baseStyles = "px-6 py-3 sm:px-8 sm:py-4 font-sans font-bold uppercase tracking-tight text-base sm:text-lg flex items-center gap-2 relative overflow-hidden group transition-all duration-200 active:scale-[0.98] touch-manipulation cursor-pointer";
 
   const variants = {
     primary: "bg-[#D4AF37] text-black",

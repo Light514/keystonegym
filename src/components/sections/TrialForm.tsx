@@ -107,7 +107,7 @@ Submitted via keystonegym.com`;
       <Grid>
         <div className="col-span-1 md:col-span-5">
           <Label className="text-[#D4AF37]">{t('label')}</Label>
-          <div className="font-sans text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.85] text-white">
+          <div className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.9] text-white">
             <RevealText>{t('title1')}</RevealText>
             <RevealText delay={0.1}><span className="text-[#D4AF37]">{t('title2')}</span></RevealText>
           </div>
@@ -121,7 +121,7 @@ Submitted via keystonegym.com`;
         <div className="col-span-1 md:col-span-7">
           <FadeIn delay={0.4}>
             <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2 group">
                   <label className="font-mono text-xs uppercase opacity-80 text-[#D4AF37] group-focus-within:opacity-100 transition-opacity">
                     {t('fullName')}
@@ -129,7 +129,7 @@ Submitted via keystonegym.com`;
                   <input
                     {...register('fullName')}
                     type="text"
-                    className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
+                    className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-3 sm:py-4 text-xl sm:text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
                     placeholder={t('placeholders.name')}
                   />
                   {errors.fullName && (
@@ -143,7 +143,7 @@ Submitted via keystonegym.com`;
                   <input
                     {...register('phone')}
                     type="tel"
-                    className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
+                    className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-3 sm:py-4 text-xl sm:text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
                     placeholder={t('placeholders.phone')}
                   />
                   {errors.phone && (
@@ -159,7 +159,7 @@ Submitted via keystonegym.com`;
                 <input
                   {...register('email')}
                   type="email"
-                  className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
+                  className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-3 sm:py-4 text-xl sm:text-2xl font-sans outline-none placeholder:text-zinc-800 transition-colors text-white"
                   placeholder={t('placeholders.email')}
                 />
                 {errors.email && (
@@ -174,7 +174,7 @@ Submitted via keystonegym.com`;
                 <textarea
                   {...register('message')}
                   rows={3}
-                  className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none placeholder:text-zinc-800 transition-colors resize-none text-white"
+                  className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-3 sm:py-4 text-lg sm:text-xl font-sans outline-none placeholder:text-zinc-800 transition-colors resize-none text-white"
                   placeholder={t('placeholders.message')}
                 />
               </div>

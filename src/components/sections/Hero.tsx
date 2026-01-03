@@ -40,7 +40,7 @@ export function Hero() {
   return (
     <>
       {/* HEADER / NAV */}
-      <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white px-4 md:px-8 py-6 flex justify-between items-start pointer-events-none">
+      <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white px-4 sm:px-6 md:px-8 py-6 flex justify-between items-start pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export function Hero() {
       />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex flex-col justify-center md:justify-end pb-12 md:pb-24 px-4 md:px-8 pt-20 md:pt-32">
+      <section className="relative min-h-screen flex flex-col justify-center md:justify-end pb-12 md:pb-24 px-4 sm:px-6 md:px-8 pt-20 sm:pt-24 md:pt-32">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[#111] -z-10 hidden md:block border-l border-[#D4AF37]/20"></div>
         {/* Subtle noise texture */}
         <div className="absolute inset-0 opacity-[0.15] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
@@ -114,7 +114,7 @@ export function Hero() {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                className="font-sans text-[13vw] sm:text-[10vw] md:text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 text-white block"
+                className="font-sans text-[10vw] sm:text-[9vw] md:text-[10vw] lg:text-[12vw] leading-[0.85] font-black uppercase tracking-tighter mb-8 text-white block"
               >
                 {t('title1')}
               </motion.h1>
@@ -125,7 +125,7 @@ export function Hero() {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
-                className="font-sans text-[13vw] sm:text-[10vw] md:text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] to-[#8C721F] block"
+                className="font-sans text-[10vw] sm:text-[9vw] md:text-[10vw] lg:text-[12vw] leading-[0.85] font-black uppercase tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] to-[#8C721F] block"
               >
                 {t('title2')}
               </motion.h1>

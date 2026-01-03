@@ -19,7 +19,7 @@ export function Training() {
       <Grid>
         <div className="col-span-1 sm:col-span-6 md:col-span-5">
           <Label>{t('label')}</Label>
-          <div className="mb-8 text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black uppercase tracking-tighter leading-[0.85]">
+          <div className="mb-8 text-white text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-black uppercase tracking-tighter leading-[0.9]">
             <RevealText>{t('title1')}</RevealText>
             <RevealText delay={0.1}>{t('title2')}</RevealText>
           </div>

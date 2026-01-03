@@ -25,7 +25,8 @@ export default async function PaymentsPage() {
       </h1>
 
       <div className="bg-[#0a0a0a] border border-zinc-800 rounded-lg overflow-hidden">
-        <div className="grid grid-cols-4 gap-4 p-4 border-b border-zinc-800 font-mono text-xs uppercase text-zinc-500">
+        {/* Table Header - Desktop Only */}
+        <div className="hidden md:grid grid-cols-4 gap-4 p-4 border-b border-zinc-800 font-mono text-xs uppercase text-zinc-500">
           <span>Date</span>
           <span>Description</span>
           <span>Method</span>
@@ -35,21 +36,46 @@ export default async function PaymentsPage() {
         {payments && payments.length > 0 ? (
           <div className="divide-y divide-zinc-800">
             {payments.map((payment) => (
-              <div key={payment.id} className="grid grid-cols-4 gap-4 p-4 items-center">
-                <span className="font-mono text-sm text-zinc-400">
-                  {new Date(payment.payment_date).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric',
-                  })}
-                </span>
-                <span className="font-sans text-white">{payment.description}</span>
-                <span className="font-mono text-sm text-zinc-500">
-                  {payment.payment_method}
-                </span>
-                <span className="font-mono text-right text-[#D4AF37]">
-                  ${(payment.amount / 100).toFixed(2)} CAD
-                </span>
+              <div key={payment.id} className="p-4">
+                {/* Desktop View - Table Row */}
+                <div className="hidden md:grid grid-cols-4 gap-4 items-center">
+                  <span className="font-mono text-sm text-zinc-400">
+                    {new Date(payment.payment_date).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric',
+                    })}
+                  </span>
+                  <span className="font-sans text-white">{payment.description}</span>
+                  <span className="font-mono text-sm text-zinc-500">
+                    {payment.payment_method}
+                  </span>
+                  <span className="font-mono text-right text-[#D4AF37]">
+                    ${(payment.amount / 100).toFixed(2)} CAD
+                  </span>
+                </div>
+
+                {/* Mobile View - Card */}
+                <div className="md:hidden space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-sans font-bold text-white">{payment.description}</span>
+                    <span className="font-mono text-[#D4AF37]">
+                      ${(payment.amount / 100).toFixed(2)} CAD
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-mono text-zinc-400">
+                      {new Date(payment.payment_date).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
+                    </span>
+                    <span className="font-mono text-zinc-500">
+                      {payment.payment_method}
+                    </span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -13,7 +13,8 @@ export default function SchedulePage() {
       </h1>
 
       <div className="bg-[#0a0a0a] border border-zinc-800 rounded-lg overflow-hidden">
-        <div className="grid grid-cols-3 gap-4 p-4 border-b border-zinc-800 font-mono text-xs uppercase text-zinc-500">
+        {/* Table Header - Desktop Only */}
+        <div className="hidden md:grid grid-cols-3 gap-4 p-4 border-b border-zinc-800 font-mono text-xs uppercase text-zinc-500">
           <span className="flex items-center gap-2">
             <Calendar className="w-4 h-4" />
             Day
@@ -32,17 +33,38 @@ export default function SchedulePage() {
           {SCHEDULE.map((session) => (
             <div
               key={session.day}
-              className="grid grid-cols-3 gap-4 p-6 items-center hover:bg-zinc-900/50 transition-colors"
+              className="p-4 md:p-6 hover:bg-zinc-900/50 transition-colors"
             >
-              <span className="font-sans font-bold text-lg text-white">
-                {session.day}
-              </span>
-              <span className="font-mono text-[#D4AF37]">
-                {session.time}
-              </span>
-              <span className="font-sans text-zinc-300">
-                {session.coach}
-              </span>
+              {/* Desktop View - Table Row */}
+              <div className="hidden md:grid grid-cols-3 gap-4 items-center">
+                <span className="font-sans font-bold text-lg text-white">
+                  {session.day}
+                </span>
+                <span className="font-mono text-[#D4AF37]">
+                  {session.time}
+                </span>
+                <span className="font-sans text-zinc-300">
+                  {session.coach}
+                </span>
+              </div>
+
+              {/* Mobile View - Card */}
+              <div className="md:hidden space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-sans font-bold text-lg text-white">
+                    {session.day}
+                  </span>
+                  <span className="font-mono text-[#D4AF37]">
+                    {session.time}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <User className="w-4 h-4 text-zinc-500" />
+                  <span className="font-sans text-zinc-300">
+                    {session.coach}
+                  </span>
+                </div>
+              </div>
             </div>
           ))}
         </div>

@@ -17,7 +17,7 @@ export function Philosophy() {
       <Grid>
         <div className="col-span-1 sm:col-span-6 md:col-span-4">
           <Label>{t('label')}</Label>
-          <div className="text-5xl sm:text-6xl md:text-7xl mb-8 font-sans font-black uppercase tracking-tighter leading-[0.85] text-white">
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 font-sans font-black uppercase tracking-tighter leading-[0.9] text-white">
             <RevealText delay={0.1}>{t('title1')}</RevealText>
             <RevealText delay={0.2}>{t('title2')}</RevealText>
             <RevealText delay={0.3}>{t('title3')}</RevealText>
