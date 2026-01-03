@@ -29,15 +29,15 @@ export async function POST(request: NextRequest) {
         },
       ],
       mode: 'payment',
-      success_url: `${request.nextUrl.origin}/?donation=success`,
-      cancel_url: `${request.nextUrl.origin}/?donation=cancelled`,
+      ui_mode: 'embedded',
+      return_url: `${request.nextUrl.origin}/?donation=success`,
       metadata: {
         type: 'donation',
         amount: amount.toString(),
       },
     });
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ clientSecret: session.client_secret });
   } catch (error) {
     console.error('Stripe error:', error);
     return NextResponse.json(

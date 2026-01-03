@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
-import { Loader2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { FadeIn } from '../animations/FadeIn';
 import { ScaleIn } from '../animations/ScaleIn';
@@ -10,6 +9,7 @@ import { Section } from '../layout/Section';
 import { Button } from '../ui/Button';
 import { IslamicStarIcon } from '../icons/IslamicStarIcon';
 import { MuhammadAliSignature } from '../icons/MuhammadAliSignature';
+import { StripeCheckoutModal } from '../ui/StripeCheckoutModal';
 import { cn } from '../ui/cn';
 
 const DONATION_AMOUNTS = [25, 50, 100];
@@ -20,42 +20,18 @@ export function Support() {
   const [customAmount, setCustomAmount] = useState('');
   const [isCustom, setIsCustom] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'paypal'>('stripe');
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showStripeModal, setShowStripeModal] = useState(false);
 
   const finalAmount = isCustom ? parseInt(customAmount) || 0 : selectedAmount;
 
-  const handleStripeCheckout = async () => {
+  const handleStripeCheckout = () => {
     if (finalAmount < 1) {
       setError(t('errors.invalidAmount'));
       return;
     }
-
-    setIsLoading(true);
     setError(null);
-
-    try {
-      const response = await fetch('/api/donations/stripe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: finalAmount }),
-      });
-
-      const { url, error: apiError } = await response.json();
-
-      if (apiError) {
-        throw new Error(apiError);
-      }
-
-      if (url) {
-        window.location.href = url;
-      }
-    } catch (err) {
-      setError(t('errors.paymentFailed'));
-      console.error(err);
-    } finally {
-      setIsLoading(false);
-    }
+    setShowStripeModal(true);
   };
 
   return (
@@ -186,17 +162,10 @@ export function Support() {
           {paymentMethod === 'stripe' ? (
             <Button
               onClick={handleStripeCheckout}
-              disabled={isLoading || finalAmount < 1}
+              disabled={finalAmount < 1}
               className="w-full justify-center disabled:opacity-50"
             >
-              {isLoading ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  {t('processing')}
-                </>
-              ) : (
-                t('contribute', { amount: finalAmount })
-              )}
+              {t('contribute', { amount: finalAmount })}
             </Button>
           ) : (
             <PayPalScriptProvider
@@ -260,6 +229,14 @@ export function Support() {
           </p>
         </div>
       </ScaleIn>
+
+      {/* Stripe Checkout Modal */}
+      {showStripeModal && (
+        <StripeCheckoutModal
+          amount={finalAmount}
+          onClose={() => setShowStripeModal(false)}
+        />
+      )}
     </Section>
   );
 }

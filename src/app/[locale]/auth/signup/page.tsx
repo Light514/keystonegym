@@ -98,8 +98,8 @@ export default function SignupPage() {
             <input
               {...register('fullName')}
               type="text"
-              className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700"
-              placeholder="John Doe"
+              className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700 uppercase"
+              placeholder="ISLAM MAKHACHEV"
             />
             {errors.fullName && (
               <p className="text-red-500 text-xs font-mono">{errors.fullName.message}</p>
@@ -111,8 +111,8 @@ export default function SignupPage() {
             <input
               {...register('email')}
               type="email"
-              className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700"
-              placeholder="your@email.com"
+              className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700 uppercase"
+              placeholder="SENDLOCATION@UFC.COM"
             />
             {errors.email && (
               <p className="text-red-500 text-xs font-mono">{errors.email.message}</p>
@@ -137,8 +137,8 @@ export default function SignupPage() {
             <input
               {...register('password')}
               type="password"
-              className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700"
-              placeholder="••••••••"
+              className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700 uppercase"
+              placeholder="MIN 8 CHARACTERS"
             />
             {errors.password && (
               <p className="text-red-500 text-xs font-mono">{errors.password.message}</p>
@@ -150,8 +150,8 @@ export default function SignupPage() {
             <input
               {...register('confirmPassword')}
               type="password"
-              className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700"
-              placeholder="••••••••"
+              className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700 uppercase"
+              placeholder="REPEAT PASSWORD"
             />
             {errors.confirmPassword && (
               <p className="text-red-500 text-xs font-mono">{errors.confirmPassword.message}</p>

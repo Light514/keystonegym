@@ -75,8 +75,8 @@ function LoginForm() {
           <input
             {...register('email')}
             type="email"
-            className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700"
-            placeholder="your@email.com"
+            className="w-full bg-transparent border-b-2 border-zinc-800 focus:border-[#D4AF37] py-4 text-xl font-sans outline-none text-white placeholder:text-zinc-700 uppercase"
+            placeholder="SENDLOCATION@UFC.COM"
           />
           {errors.email && (
             <p className="text-red-500 text-xs font-mono">{errors.email.message}</p>
