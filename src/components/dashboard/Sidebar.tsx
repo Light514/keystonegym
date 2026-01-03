@@ -26,7 +26,7 @@ export function DashboardSidebar({ isAdmin = false }: DashboardSidebarProps) {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-[#0a0a0a] border-r border-zinc-800 p-6">
+    <aside className="hidden lg:block fixed left-0 top-0 h-screen w-64 bg-[#0a0a0a] border-r border-zinc-800 p-6">
       <Link href="/" className="flex items-center gap-2 text-[#D4AF37] mb-12">
         <KeystoneIcon className="w-8 h-8" />
         <span className="font-sans font-black text-xl tracking-tighter">KEYSTONE</span>

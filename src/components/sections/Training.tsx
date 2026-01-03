@@ -17,9 +17,9 @@ export function Training() {
   return (
     <Section id="training">
       <Grid>
-        <div className="col-span-1 md:col-span-5">
+        <div className="col-span-1 sm:col-span-6 md:col-span-5">
           <Label>{t('label')}</Label>
-          <div className="mb-8 text-white text-5xl md:text-6xl lg:text-7xl font-sans font-black uppercase tracking-tighter leading-[0.85]">
+          <div className="mb-8 text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black uppercase tracking-tighter leading-[0.85]">
             <RevealText>{t('title1')}</RevealText>
             <RevealText delay={0.1}>{t('title2')}</RevealText>
           </div>
@@ -41,7 +41,7 @@ export function Training() {
           </ScaleIn>
         </div>
 
-        <div className="col-span-1 md:col-span-7">
+        <div className="col-span-1 sm:col-span-6 md:col-span-7">
           <div className="space-y-0 relative">
             <motion.div
               initial={{ scaleX: 0 }}
@@ -52,8 +52,8 @@ export function Training() {
             />
 
             {/* Schedule Table */}
-            <div className="grid grid-cols-1 md:grid-cols-2 border-b border-[#D4AF37]">
-              <div className="p-8 border-b md:border-b-0 border-[#D4AF37] md:border-r">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 border-b border-[#D4AF37]">
+              <div className="p-6 sm:p-8 border-b sm:border-b-0 border-[#D4AF37] sm:border-r">
                 <h4 className="font-sans text-xl font-bold uppercase mb-4 flex items-center gap-2 text-[#D4AF37]">
                   <Calendar className="w-5 h-5" /> {t('schedule')}
                 </h4>

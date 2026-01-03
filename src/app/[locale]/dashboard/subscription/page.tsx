@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { Check, AlertCircle } from 'lucide-react';
 import { PaymentMethodCard } from './PaymentMethodCard';
+import { SubscriptionActions } from './SubscriptionActions';
 
 export default async function SubscriptionPage() {
   const supabase = await createClient();
@@ -61,7 +62,7 @@ export default async function SubscriptionPage() {
           <span className="font-mono text-zinc-500">CAD / month</span>
         </div>
 
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-3">
           {(features as string[]).map((feature, i) => (
             <li key={i} className="flex items-center gap-3 text-zinc-300">
               <Check className="w-5 h-5 text-[#D4AF37]" />
@@ -70,8 +71,10 @@ export default async function SubscriptionPage() {
           ))}
         </ul>
 
+        <SubscriptionActions isActive={isActive} hasSubscription={!!subscription} />
+
         {subscription && (
-          <div className="border-t border-zinc-800 pt-6">
+          <div className="border-t border-zinc-800 pt-6 mt-6">
             <div className="grid grid-cols-2 gap-4 font-mono text-sm">
               <div>
                 <p className="text-zinc-500">Current Period</p>

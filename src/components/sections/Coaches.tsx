@@ -22,9 +22,9 @@ export function Coaches() {
   return (
     <Section id="coaches" className="bg-[#111]">
       <Grid>
-        <div className="col-span-1 md:col-span-12 mb-12">
+        <div className="col-span-1 sm:col-span-6 md:col-span-12 mb-12">
           <Label>{t('label')}</Label>
-          <h2 className="font-sans text-4xl md:text-6xl uppercase font-black leading-none max-w-4xl text-zinc-100">
+          <h2 className="font-sans text-3xl sm:text-4xl md:text-6xl uppercase font-black leading-none max-w-4xl text-zinc-100">
             <RevealText delay={0.1}>{t('title1')}</RevealText>
             <RevealText delay={0.2}><span className="text-[#D4AF37]">{t('title2').split('.')[0]}.</span> {t('title2').split('.')[1]?.trim() || ''}</RevealText>
             <RevealText delay={0.3}>{t('title3')}</RevealText>
@@ -38,7 +38,7 @@ export function Coaches() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-5%" }}
             transition={{ duration: 0.8, delay: 0.2 + (i * 0.1) }}
-            className="col-span-1 md:col-span-3 min-h-[400px] relative group overflow-hidden border border-zinc-800"
+            className="col-span-1 sm:col-span-3 md:col-span-3 min-h-[350px] sm:min-h-[400px] relative group overflow-hidden border border-zinc-800"
           >
             {/* Image Background */}
             <div className="absolute inset-0 bg-zinc-900">

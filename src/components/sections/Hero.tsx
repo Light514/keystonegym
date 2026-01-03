@@ -102,7 +102,7 @@ export function Hero() {
         />
 
         <Grid>
-          <div className="col-span-1 md:col-span-8 overflow-hidden">
+          <div className="col-span-1 sm:col-span-4 md:col-span-8 overflow-hidden">
             <RevealText delay={0.2}>
               <span className="font-mono text-xs md:text-sm uppercase tracking-wider block mb-4 text-[#D4AF37]">
                 {t('location')}
@@ -114,7 +114,7 @@ export function Hero() {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                className="font-sans text-[15vw] md:text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 text-white block"
+                className="font-sans text-[13vw] sm:text-[10vw] md:text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 text-white block"
               >
                 {t('title1')}
               </motion.h1>
@@ -125,14 +125,14 @@ export function Hero() {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
-                className="font-sans text-[15vw] md:text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] to-[#8C721F] block"
+                className="font-sans text-[13vw] sm:text-[10vw] md:text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] to-[#8C721F] block"
               >
                 {t('title2')}
               </motion.h1>
             </div>
           </div>
 
-          <div className="col-span-1 md:col-span-4 flex flex-col justify-end items-start md:pl-8">
+          <div className="col-span-1 sm:col-span-2 md:col-span-4 flex flex-col justify-end items-start sm:pl-4 md:pl-8">
             <FadeIn delay={0.8} className="space-y-8">
               <p className="text-xl md:text-2xl font-medium leading-tight max-w-md text-zinc-300">
                 {t('tagline1')}<br />

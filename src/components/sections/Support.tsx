@@ -62,7 +62,7 @@ export function Support() {
       <div className="max-w-4xl mx-auto text-center mb-16">
         <FadeIn>
           <IslamicStarIcon className="w-12 h-12 mx-auto mb-8 text-[#D4AF37]" />
-          <blockquote className="font-sans text-2xl md:text-4xl font-bold uppercase leading-tight mb-8">
+          <blockquote className="font-sans text-xl sm:text-2xl md:text-4xl font-bold uppercase leading-tight mb-8">
             &ldquo;{t('quote')}&rdquo;
           </blockquote>
           <cite className="not-italic font-mono text-[#D4AF37]">— {t('author')}</cite>

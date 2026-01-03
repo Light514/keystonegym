@@ -15,16 +15,16 @@ export function Philosophy() {
   return (
     <Section id="philosophy">
       <Grid>
-        <div className="col-span-1 md:col-span-4">
+        <div className="col-span-1 sm:col-span-6 md:col-span-4">
           <Label>{t('label')}</Label>
-          <div className="text-6xl md:text-7xl mb-8 font-sans font-black uppercase tracking-tighter leading-[0.85] text-white">
+          <div className="text-5xl sm:text-6xl md:text-7xl mb-8 font-sans font-black uppercase tracking-tighter leading-[0.85] text-white">
             <RevealText delay={0.1}>{t('title1')}</RevealText>
             <RevealText delay={0.2}>{t('title2')}</RevealText>
             <RevealText delay={0.3}>{t('title3')}</RevealText>
           </div>
         </div>
 
-        <div className="col-span-1 md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+        <div className="col-span-1 sm:col-span-6 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
           {itemKeys.map((key, i) => (
             <motion.div
               key={key}

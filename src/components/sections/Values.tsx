@@ -20,10 +20,10 @@ export function Values() {
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/hexellence.png')]"></div>
 
       <Grid className="relative z-10">
-        <div className="col-span-1 md:col-span-6 pr-0 md:pr-12 pb-12 md:pb-0 mb-12 md:mb-0 border-b md:border-b-0 border-black/10">
+        <div className="col-span-1 sm:col-span-6 md:col-span-6 pr-0 sm:pr-8 md:pr-12 pb-12 sm:pb-0 md:pb-0 mb-12 sm:mb-0 md:mb-0 border-b sm:border-b-0 md:border-b-0 border-black/10">
           <div className="flex items-center gap-4 mb-12">
-            <FadeIn><Check className="w-12 h-12 text-black" /></FadeIn>
-            <h2 className="font-sans text-6xl md:text-8xl font-black uppercase tracking-tighter overflow-hidden">
+            <FadeIn><Check className="w-10 sm:w-12 h-10 sm:h-12 text-black" /></FadeIn>
+            <h2 className="font-sans text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter overflow-hidden">
               <RevealText>{t('weWant')}</RevealText>
             </h2>
           </div>
@@ -39,7 +39,7 @@ export function Values() {
               >
                 <span className="font-mono text-black/50 mt-1">0{i + 1}</span>
                 <div>
-                  <h3 className="font-sans text-3xl md:text-4xl font-bold uppercase group-hover:text-white transition-colors">{t(`want.${key}.title`)}</h3>
+                  <h3 className="font-sans text-2xl sm:text-3xl md:text-4xl font-bold uppercase group-hover:text-white transition-colors">{t(`want.${key}.title`)}</h3>
                   <p className="text-black/60 font-mono text-sm mt-1 font-bold">{t(`want.${key}.subtitle`)}</p>
                 </div>
               </motion.li>
@@ -47,10 +47,10 @@ export function Values() {
           </ul>
         </div>
 
-        <div className="col-span-1 md:col-span-6 md:border-l md:border-black/10 md:pl-12">
+        <div className="col-span-1 sm:col-span-6 md:col-span-6 sm:border-l md:border-l sm:border-black/10 md:border-black/10 sm:pl-8 md:pl-12">
           <div className="flex items-center gap-4 mb-12">
-            <FadeIn delay={0.2}><X className="w-12 h-12 text-black" /></FadeIn>
-            <h2 className="font-sans text-6xl md:text-8xl font-black uppercase tracking-tighter overflow-hidden">
+            <FadeIn delay={0.2}><X className="w-10 sm:w-12 h-10 sm:h-12 text-black" /></FadeIn>
+            <h2 className="font-sans text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter overflow-hidden">
               <RevealText delay={0.2}>{t('weReject')}</RevealText>
             </h2>
           </div>
@@ -66,7 +66,7 @@ export function Values() {
               >
                 <span className="font-mono text-black/50 mt-1">0{i + 1}</span>
                 <div>
-                  <h3 className="font-sans text-3xl md:text-4xl font-bold uppercase group-hover:text-white transition-colors decoration-slice line-through decoration-black">{t(`reject.${key}.title`)}</h3>
+                  <h3 className="font-sans text-2xl sm:text-3xl md:text-4xl font-bold uppercase group-hover:text-white transition-colors decoration-slice line-through decoration-black">{t(`reject.${key}.title`)}</h3>
                   <p className="text-black/60 font-mono text-sm mt-1 font-bold">{t(`reject.${key}.subtitle`)}</p>
                 </div>
               </motion.li>

@@ -28,10 +28,10 @@ export default async function DashboardLayout({
 
   return (
     <div className="min-h-screen bg-[#050505] text-white">
-      <DashboardHeader user={user} />
+      <DashboardHeader user={user} isAdmin={isAdmin} />
       <div className="flex">
         <DashboardSidebar isAdmin={isAdmin} />
-        <main className="flex-1 p-8 ml-64">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 lg:ml-64 mt-16">
           {children}
         </main>
       </div>
