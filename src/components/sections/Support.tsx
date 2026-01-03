@@ -9,6 +9,7 @@ import { ScaleIn } from '../animations/ScaleIn';
 import { Section } from '../layout/Section';
 import { Button } from '../ui/Button';
 import { IslamicStarIcon } from '../icons/IslamicStarIcon';
+import { MuhammadAliSignature } from '../icons/MuhammadAliSignature';
 import { cn } from '../ui/cn';
 
 const DONATION_AMOUNTS = [25, 50, 100];
@@ -65,7 +66,7 @@ export function Support() {
           <blockquote className="font-sans text-xl sm:text-2xl md:text-4xl font-bold uppercase leading-tight mb-8">
             &ldquo;{t('quote')}&rdquo;
           </blockquote>
-          <cite className="not-italic font-mono text-[#D4AF37]">— {t('author')}</cite>
+          <MuhammadAliSignature className="h-10 sm:h-12 md:h-14 w-auto mx-auto text-[#D4AF37]" />
         </FadeIn>
       </div>
 
