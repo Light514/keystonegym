@@ -20,22 +20,35 @@ export function KeystoneIcon({ className }: { className?: string }) {
 
 // --- Sub-components ---
 const NavLink = ({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  
+  const [isActive, setIsActive] = useState(false);
+
   return (
-    <a 
-      href={href} 
-      className={cn("relative group flex items-center transition-colors active:scale-95 duration-100 w-fit", className)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <a
+      href={href}
+      className={cn("relative group flex items-center transition-colors active:scale-95 duration-100 w-fit touch-manipulation", className)}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+      onClick={(e) => {
+        // Toggle active state on tap for mobile
+        if ('ontouchstart' in window) {
+          e.preventDefault();
+          if (isActive) {
+            // Navigate on second tap
+            window.location.href = href;
+          } else {
+            setIsActive(true);
+          }
+        }
+      }}
+      onBlur={() => setIsActive(false)}
     >
       <span className={cn(
-        "font-mono text-[#D4AF37] mr-2 inline-block transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0", 
-        isHovered ? "opacity-100 translate-x-0 w-auto" : "opacity-0 -translate-x-2 w-0 overflow-hidden"
+        "font-mono text-[#D4AF37] mr-2 inline-block transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0",
+        isActive ? "opacity-100 translate-x-0 w-auto" : "opacity-0 -translate-x-2 w-0 overflow-hidden"
       )}>
         //
       </span>
-      <span className={cn("transition-colors duration-300 group-hover:text-[#D4AF37]", isHovered ? "text-[#D4AF37]" : "text-inherit")}>
+      <span className={cn("transition-colors duration-300 group-hover:text-[#D4AF37]", isActive ? "text-[#D4AF37]" : "text-inherit")}>
         {children}
       </span>
     </a>

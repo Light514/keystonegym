@@ -91,6 +91,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     <NavLink
                       href={item.href}
                       onClick={handleLinkClick}
+                      directTap
                       className="text-2xl font-mono uppercase tracking-wider text-zinc-300 hover:text-[#D4AF37] transition-colors block py-2"
                     >
                       {item.label.toUpperCase()}
