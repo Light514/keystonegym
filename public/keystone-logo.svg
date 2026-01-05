@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32" fill="#D4AF37">
+  <g transform="translate(100, 16)">
+    <!-- Keystone Icon (centered at origin) -->
+    <path d="M-88 -12L-85 12H-67L-64 -12H-88Z" />
+    <!-- KEYSTONE Text (centered) -->
+    <text x="-52" y="8" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="24" font-weight="900" letter-spacing="-0.05em">KEYSTONE</text>
+  </g>
+</svg>

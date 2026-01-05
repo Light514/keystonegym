@@ -8,12 +8,12 @@ import { Section } from '../layout/Section';
 import { Grid } from '../layout/Grid';
 import { Label } from '../layout/Label';
 
-const coachKeys = ['rustam', 'vislan', 'wassim', 'ahmed'] as const;
+const coachKeys = ['rustam', 'vislan', 'wassim', 'rachid'] as const;
 const coachImages = {
   rustam: "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/76a7e56e-c033-4e29-b2c2-a5c5d296ee5c/1767308593855-ded305dd/Rustam_Dudaiev.png",
-  vislan: "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/76a7e56e-c033-4e29-b2c2-a5c5d296ee5c/1767308593855-ded305dd/Rustam_Dudaiev.png",
-  wassim: "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/76a7e56e-c033-4e29-b2c2-a5c5d296ee5c/1767308593855-ded305dd/Rustam_Dudaiev.png",
-  ahmed: "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/76a7e56e-c033-4e29-b2c2-a5c5d296ee5c/1767308593855-ded305dd/Rustam_Dudaiev.png",
+  vislan: "/images/Vislan_Dalkhaev.png",
+  wassim: "/images/Wassim_Kickboxing.jpg",
+  rachid: "/images/Rachid_Grappling.png",
 };
 
 export function Coaches() {
