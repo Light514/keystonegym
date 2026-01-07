@@ -68,8 +68,8 @@
     "focus": "FOCUS",
     "list": {
       "rustam": { "name": "Rustam Dudaiev", "exp": "20+ Years", "origin": "Chechnya", "discipline": "Wrestling" },
-      "vislan": { "name": "Vislan Dalkhaev", "exp": "15+ Years", "origin": "Dagestan", "discipline": "Boxing" },
-      "wassim": { "name": "Wassim Maghribi", "exp": "7+ Years", "origin": "Morocco", "discipline": "Kickboxing" },
+      "vislan": { "name": "Vislan Dalkhaev", "exp": "20+ Years", "origin": "Dagestan", "discipline": "Boxing" },
+      "wassim": { "name": "Wassim Benchekroun", "exp": "7+ Years", "origin": "Morocco", "discipline": "Kickboxing" },
       "rachid": { "name": "Rachid Benchalal", "exp": "10+ Years", "origin": "Algeria", "discipline": "Grappling" }
     }
   },
